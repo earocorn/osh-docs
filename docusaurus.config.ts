@@ -94,7 +94,7 @@ const config: Config = {
           items: [
             {
               label: 'Guides',
-              to: '/docs/intro',
+              to: '/guides',
             },
             
           ],
@@ -105,7 +105,7 @@ const config: Config = {
         
             {
               label: 'OpenSensorHub',
-              href: 'https://discordapp.com/invite/',
+              href: 'https://opensensorhub.org/',
             },
             {
               label: 'Discord',
@@ -123,7 +123,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/opensensorhub',
             },
           ],
         },
