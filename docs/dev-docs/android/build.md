@@ -2,7 +2,7 @@
 title: Building 
 sidebar_position: 2
 ---
-
+# OpenSensorHub Android Build Guide
 
 ### Build
 - Building the latest version of the OSH App tested with Gradle v7 and Android Studio Giraffe v2022.3.1
