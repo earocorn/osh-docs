@@ -1,47 +1,44 @@
 ---
-sidebar_position: 1
+title: OpenSensorHub Documentation
+sidebar_position: 0
 ---
 
-# Overview
+## Introduction
+**OpenSensorHub (OSH)** is an open-source framework deisgned to build **interopable** and **evolutive** sensor networks. It leverages **open standards**, primarily from the **OGC Sensor Web Enablement (SWE)** initiative, to facilitate scalable and reconfigurable sensor networks. This approach ensures that new sensor types can be easily integrated and network configurations can adapt over time.
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## Key Features
+- **Open Standards Compliance**: Supports OGC SWE standards for robust data exchange.
+- **Flexible Sensor Connectivity**: Works with a wide range of interfaces, including:
+  - **Wired**: RS232/422, SPI, I2C, USB, Ethernet
+ - **Wireless**: Wi-Fi, Bluetooth, ZigBee, HTTP
+- **Java-Based Framework**: Provides a simple, generic driver API to connect sensors and actuators to a **common bus**.
+- **Command & Data Handling**: Once a driver is available, sensors are automatically connected, enabling seamless **data reading** and **command execution**.
+- **User-Friendly Interface**: Enables intuitive **network configuration** and management.
+- **Advanced Processing Capabilities**: Supports **multi-threading** and distributed processing on powerful hardware setups.
+- **Embedded System Support**:
+  - Runs on **Java SE, Java ME, and Android**
+  - Future plans include **C++ and Arduino** versions for microcontrollers
 
-## Getting Started
+## Web Services & Interoperability
+OSH integrates **OGC web services**, such as:
+- [**Connected Systems API Service (API)**](https://ogcapi.ogc.org/connectedsystems/)
+- [**Sensor Observation Service (SOS)**](http://www.opengeospatial.org/standards/sos) 
+- [**Sensor Planning Service (SPS)**](https://www.ogc.org/publications/standard/sps/) 
 
-Get started by **creating a new site**.
+These services enable multiple **SensorHub instances** to communicate, forming larger sensor networks that share metadata (e.g., ownership, location, orientation, calibration).
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Performance & Scalability
+OSH is optimized for different hardware levels:
+- **Embedded Systems**: Efficient low-level functions for devices running **Java ME**.
+- **High-Performance Platforms**: Multi-threaded architecture leverages **multi-processor servers and clusters** for advanced data processing.
 
-### What you'll need
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## Learn More
+For an architectural overview and API insights, refer to the **[FOSS4G Presentation](https://drive.google.com/file/d/0B3EZQJqOfG9sUFQxVFd0d2ZEbDQ/view?resourcekey=0-aJvEPDP2dkyXcLHGSx1-bg)**.
 
-## Generate a new site
+## Reporting Issues
+To report software bugs or documentation errors, use the **[GitHub Issue Tracker](https://github.com/opensensorhub)** of the relevant repository.
 
-Generate a new Docusaurus site using the **classic template**.
+---
 
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Stay connected with the **OpenSensorHub** community and contribute to its continuous development!

@@ -1,4 +1,4 @@
 ---
-title: Build
+title: "Architecture"
 sidebar_position: 2
 ---
