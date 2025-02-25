@@ -50,10 +50,10 @@ If successful, you should see the status of both submodules `osh-addons` and `os
 For the project to build properly, we need to ensure we are checking out the correct branches in each project. Here are the following **suggested** branches to ensure the build process runs smoothly. 
 
 For **osh-android**:
-- `osh-core` : Master || con-sys-android
-- `osh-addons`: Master
-- `lib-ogc`: Master
-- `project`: Master
+- **osh-core** : `Master` or `con-sys-android`
+- **osh-addons**: `Master`
+- **lib-ogc**: `Master`
+- **project** : `Master`
 
 
 ### Build OSH Android App
