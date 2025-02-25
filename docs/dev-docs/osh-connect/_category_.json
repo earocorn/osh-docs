@@ -1,6 +1,6 @@
 {
   "label": "OSH Connect",
-  "position": 4,
+  "position": 7,
   "link": {
     "type": "generated-index",
     "description": "OSH Connect is a straightforward library for interacting with OpenSensorHub using OGC API Connected Systems."
