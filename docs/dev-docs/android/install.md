@@ -49,11 +49,7 @@ For **osh-android**:
 - `project`: Master
 
 
-## For more information on Setting up OSH Node build, click [here](LINK)
-
-
-
-## Install OSH Android App
+### Install OSH Android App
 1. open the terminal to the Android project directory
 2.  Run these two commands
 
@@ -63,3 +59,5 @@ For **osh-android**:
  ../gradlew build
  ```
 
+
+### For more information on Setting up OSH Node build, click [here](LINK)
