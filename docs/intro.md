@@ -19,7 +19,7 @@ sidebar_position: 0
   - Runs on **Java SE, Java ME, and Android**
   - Future plans include **C++ and Arduino** versions for microcontrollers
 
-## Web Services & Interoperability
+## Web Services
 OSH integrates **OGC web services**, such as:
 - [**Connected Systems API Service (API)**](https://ogcapi.ogc.org/connectedsystems/)
 - [**Sensor Observation Service (SOS)**](http://www.opengeospatial.org/standards/sos) 
