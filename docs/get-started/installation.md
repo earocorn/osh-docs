@@ -13,7 +13,7 @@ This page guides you through the installation process for **OpenSensorHub** bina
 
 ## Prequisites
 - Java 17
-- Supported Platforms:
+- **Supported Platforms:**
     - MacOS
     - Windows
     - Linux
@@ -29,7 +29,7 @@ This page guides you through the installation process for **OpenSensorHub** bina
 3. Check your connection by opening a supported browser and typing in this url: `http://localhost:8181/sensorhub/test`
     - This should return a message  `Sensorhub web server is up`
 
-    
+
 
 ## Demo Configuration
 
