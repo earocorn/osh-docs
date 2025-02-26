@@ -93,8 +93,20 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Guides',
-              to: '/guides',
+              label: 'Getting Started',
+              to: 'docs/category/getting-started-2',
+            },
+            {
+              label: 'User Documentation',
+              to: '/docs/category/user-documentation-2',
+            },
+            {
+              label: 'Developer Docs',
+              to: '/docs/category/developer-docs-2',
+            },
+            {
+              label: 'Tutorials',
+              to: '/docs/category/tutorials-2',
             },
             
           ],
