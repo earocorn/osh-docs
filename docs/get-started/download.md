@@ -1,5 +1,5 @@
 ---
-title: "Download"
+title: ❌  "Download"
 sidebar_position: 1
 ---
 

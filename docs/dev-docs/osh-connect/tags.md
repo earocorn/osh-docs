@@ -1,5 +1,5 @@
 ---
-title: Tabs OSH-Connect
+title: ❌  Tabs OSH-Connect
 sidebar_position: 4
 ---
 

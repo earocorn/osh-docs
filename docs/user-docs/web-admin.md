@@ -1,4 +1,4 @@
 ---
-title: Web Admin 
+title: ❌  Web Admin 
 sidebar_position: 4
 ---

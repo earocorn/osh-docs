@@ -1,4 +1,4 @@
 ---
-title: OSH JS
+title: ❌  OSH JS
 sidebar_position: 3
 ---

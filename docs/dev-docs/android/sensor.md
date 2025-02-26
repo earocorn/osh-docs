@@ -1,5 +1,5 @@
 ---
-title: Adding a New Sensor
+title: ❌ Adding a New Sensor
 ---
 
 

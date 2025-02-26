@@ -1,5 +1,5 @@
 ---
-title: Developer's Guide
+title: ❌  Developer's Guide
 sidebar_position: 1
 description: Learn how to set up a development environment and contribute to OpenSensorHub (OSH).
 ---

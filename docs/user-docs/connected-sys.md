@@ -1,4 +1,4 @@
 ---
-title: Connected Systems Interface 
+title: ❌  Connected Systems Interface 
 sidebar_position: 6
 ---

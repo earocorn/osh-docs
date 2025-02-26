@@ -1,4 +1,4 @@
 ---
-title: "Your First Process"
+title: ❌  "Your First Process"
 sidebar_position: 3
 ---
