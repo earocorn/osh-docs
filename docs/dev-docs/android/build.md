@@ -67,7 +67,7 @@ For **osh-android**:
  ```
 
 
-### For more information on Setting up OSH Node build, click [here](LINK)
+### For more information on Setting up OSH Node build, [click here](LINK)
 
 
 
