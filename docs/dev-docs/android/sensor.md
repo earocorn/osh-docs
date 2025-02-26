@@ -120,4 +120,4 @@ enum Sensors{
 ```
 
 ### Step 7: Build and Test the Integration
-- After completing these steps, follow the [Build Guide](build.md) to compile and test your changes in the OSH Android app.
+<!-- - After completing these steps, follow the [Build Guide](build.md) to compile and test your changes in the OSH Android app. -->
