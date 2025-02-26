@@ -29,4 +29,5 @@ These are instructions on how to run the debugger for an OSH Node in IntelliJ. T
 - After any modifcations, restart the debug session to apply changes and continue testing. 
 
 5. Checking Endpoint
-- The `sensorhub-test` default port is 8282. To navigate to the `Admin Panel` you can open any supported browser, and go to `https://localhost:8282/sensorhub/admin` and follow the steps to configure a module [here](LINK). 
+- The `sensorhub-test` default port is 8282. To navigate to the `Admin Panel` you can open any supported browser, and go to `https://localhost:8282/sensorhub/admin` and follow the steps to configure a module 
+<!-- [here](LINK).  -->
