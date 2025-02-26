@@ -12,7 +12,7 @@ title: Adding a New Sensor
 - 
 
 
-**After following the [Build Guide](building.md) and ensuring the Android project is working. We can now add a new driver to the Android app.**
+<!-- **After following the [Build Guide](building.md) and ensuring the Android project is working. We can now add a new driver to the Android app.** -->
 
 ### Step 1: Open the project in Android Studio
 
@@ -104,7 +104,7 @@ enum Sensors{
         bleConf.id = "BLE";
         bleConf.moduleClass = BleNetwork.class.getCanonicalName();
         bleConf.androidContext = this.getApplicationContext();
-        bleConf.autoStart = true;
+        bleConf.autoStart = true;(buil)
         sensorhubConfig.add(bleConf);
 
         SensorConfig config = new SensorConfig();
