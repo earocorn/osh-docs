@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: ❌  'The complete reference for OpenSensorHub',
+  title: 'The complete reference for OpenSensorHub',
   tagline: '',
   favicon: 'img/OSH-Logo-NoText.png',
 
@@ -54,7 +54,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: ❌  'OpenSensorHub',
+      title: 'OpenSensorHub',
       logo: {
         alt: 'My Site Logo',
         src: 'img/OSH-Logo-NoText.png',
@@ -66,12 +66,12 @@ const config: Config = {
           position: 'left',
           label: 'Guides',
         },
-        {
-          type: 'docSidebar',
-          sidebarId: 'archSidebar',
-          position: 'left',
-          label: 'Architectures',
-        },
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'archSidebar',
+        //   position: 'left',
+        //   label: 'Architectures',
+        // },
         {
           type: 'docSidebar',
           sidebarId: 'exampleSidebar',
@@ -90,11 +90,11 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: ❌  'Docs',
+          title: 'Docs',
           items: [
             {
               label: 'Getting Started',
-              to: 'docs/category/getting-started-2',
+              to: 'docs/category/overview-2',
             },
             {
               label: 'User Documentation',
@@ -112,7 +112,7 @@ const config: Config = {
           ],
         },
         {
-          title: ❌  'Community',
+          title: 'Community',
           items: [
         
             {
@@ -127,7 +127,7 @@ const config: Config = {
           ],
         },
         {
-          title: ❌  'More',
+          title: 'More',
           items: [
             {
               label: 'OSH Blog',

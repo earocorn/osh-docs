@@ -10,7 +10,7 @@ sidebar_position: 0
 - **Open Standards Compliance**: Supports OGC SWE standards for robust data exchange.
 - **Flexible Sensor Connectivity**: Works with a wide range of interfaces, including:
   - **Wired**: RS232/422, SPI, I2C, USB, Ethernet
- - **Wireless**: Wi-Fi, Bluetooth, ZigBee, HTTP
+  - **Wireless**: Wi-Fi, Bluetooth, ZigBee, HTTP
 - **Java-Based Framework**: Provides a simple, generic driver API to connect sensors and actuators to a **common bus**.
 - **Command & Data Handling**: Once a driver is available, sensors are automatically connected, enabling seamless **data reading** and **command execution**.
 - **User-Friendly Interface**: Enables intuitive **network configuration** and management.
@@ -18,10 +18,11 @@ sidebar_position: 0
 - **Embedded System Support**:
   - Runs on **Java SE, Java ME, and Android**
   - Future plans include **C++ and Arduino** versions for microcontrollers
+  - Wide client library support via **OSH-Connect**
 
 ## Web Services
 OSH integrates **OGC web services**, such as:
-- [**Connected Systems API Service (API)**](https://ogcapi.ogc.org/connectedsystems/)
+- [**OGC API - Connected Systems**](https://ogcapi.ogc.org/connectedsystems/)
 - [**Sensor Observation Service (SOS)**](http://www.opengeospatial.org/standards/sos) 
 - [**Sensor Planning Service (SPS)**](https://www.ogc.org/publications/standard/sps/) 
 
