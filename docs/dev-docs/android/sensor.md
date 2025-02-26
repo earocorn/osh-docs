@@ -73,7 +73,7 @@ implementation project(':sensorhub-android-sensorName')
 1. Import your sensor at the top of the file
 2. Update the `Sensors` enum to include the new sensor name
 
-```java title="/src/org/sensorhub.android/MainActvity.java" showLineNumbers
+```java title="/src/org/sensorhub/android/MainActvity.java" showLineNumbers
 enum Sensors{
 
     //... rest of sensors
@@ -88,7 +88,7 @@ enum Sensors{
 3. Add to the `updateConfig` method to check if the sensor is enabled. If it is, add it to 
 `sensorhubConfig`. How this is done depends on the sensor. For example, the Template sensor we've been following only needs a few things:
 
-```java title="/src/org/sensorhub.android/MainActvity.java" showLineNumbers
+```java title="/src/org/sensorhub/android/MainActvity.java" showLineNumbers
     protected void updateConfig(SharedPreferences prefs, String runName) {
 
     // rest of code
