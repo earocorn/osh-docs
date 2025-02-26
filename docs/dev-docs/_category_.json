@@ -1,8 +1,8 @@
 {
-  "label": "Developer Docs",
+  "label": "Developer Documentation",
   "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "ATAK & TAK Guide for OSH"
+    "description": "Developers Guide to OpenSensorHub"
   }
 }

@@ -6,7 +6,7 @@ description: Learn how to set up a development environment and contribute to Ope
 
 ## Introduction
 
-Welcome to the **OpenSensorHub (OSH) Developer's Guide**. This guide will help you set up your development environment using Eclipse and extend OSH with custom sensor drivers, web services, and other components.
+Welcome to the **OpenSensorHub (OSH) Developer's Guide**. This guide will help you set up your development environment using IntelliJ and extend OSH with custom sensor drivers, web services, processes and other components.
 
 We encourage contributions! If you improve the project, consider submitting a **Pull Request** to share your work with the community. While contributing new modules is optional, any modifications to existing source files must be publicly available, as per our licensing terms.
 
@@ -48,11 +48,11 @@ git clone --recursive https://github.com/opensensorhub/osh-core.git
 OSH can be built using **Gradle** or **Eclipse**. You will need **JDK 17** to build the project.
 
 ### Building with Gradle
-Using Gradle Wrapper (`gradlew`):
+Using Gradle Wrapper (`gradlew` or `gradlew.bat` on Windows):
 
 ```sh
-cd osh-core
-./gradlew build
+ cd osh-core
+ ./gradlew build
 ```
 
 Artifacts will be generated in `{module-name}/build/libs` and `build/distributions`.

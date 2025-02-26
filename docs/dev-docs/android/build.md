@@ -4,18 +4,11 @@ sidebar_position: 2
 ---
 # OpenSensorHub Android Build Guide
 
-### Build
-- Building the latest version of the OSH App tested with Gradle v7 and Android Studio Giraffe v2022.3.1
+## Overview
 
-1. Open the directory where the project is located
-2. cd 
-
-
-
-
-## Prerequisites
+### Prerequisites
 - [OSH Android GitHub Repository](https://github.com/opensensorhub/osh-android)
-- [OSH Node GitHub Repository](https://github.com/opensensorhub/osh-node-dev-template)
+- [OSH Build Node](../osh-node/build.md)
 - [Java v17+](https://www.openlogic.com/openjdk-downloads)
 - [Git](https://git-scm.com/downloads)
 - [Gradle v7.2](https://gradle.org/install/)
@@ -23,6 +16,7 @@ sidebar_position: 2
 - macOS, Windows, and Linux are supported.
 - Android Device v13 with Developer Options enabled
 
+**For more information on Setting up OSH Build Node, [click here](../osh-node/build.md)**
 
 ## Setup
 
@@ -67,8 +61,7 @@ For **osh-android**:
  ```
 
 
-### For more information on Setting up OSH Node build, 
-<!-- [click here](LINK) -->
+
 
 
 

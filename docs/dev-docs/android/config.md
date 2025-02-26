@@ -4,13 +4,13 @@ sidebar_position: 4
 ---
 
 # Configuring the OSH Android Settings
+
+## Overview
 OpenSensorHub allows an Android device to send sensor data to a remote OSH node using the **Connected Systems** or **SOS-T standard**. This guide explains how to configure the sensors through the OSH-Android app.
 
-## Prerequisites
-1. A running OSH Node - The node must be actively running to listen to incoming requests from the Android device. If you need help building an OSH Node follow these instructions 
-<!-- [here](LINK). -->
-2. OSH Android App installed - Ensure the latest version of the app is installed on your Android device. If you need help building an OSH Android app follow these instructions 
-<!-- [here](LINK). -->
+### Prerequisites
+1. A running OSH Node - The node must be actively running to listen to incoming requests from the Android device. If you need help building an OSH Node follow these instructions [here](../osh-node/build.md).
+2. OSH Android App installed - Ensure the latest version of the app is installed on your Android device. If you need help building an OSH Android app follow these instructions [here](build.md).
  
 
 
@@ -65,6 +65,8 @@ Within the **Sensors** page, you will find a list of all the sensors that can be
     - Once enabled, the selected sensors will start sending data when **Start Sensorhub** is started. 
 
 
+
+### Viewing Results in Client
 
 
 

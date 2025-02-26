@@ -12,7 +12,7 @@ title: ❌ Adding a New Sensor
 - 
 
 
-<!-- **After following the [Build Guide](building.md) and ensuring the Android project is working. We can now add a new driver to the Android app.** -->
+**After following the [Build Guide](build.md) and ensuring the Android project is working. We can now add a new driver to the Android app.**
 
 ### Step 1: Open the project in Android Studio
 
@@ -29,8 +29,8 @@ external drivers can be things connected through the android device through Blue
 2. Rename the project to 'sensorhub-android-sensorName'
 3. Navigate to the `sensorhub-android-app' build.gradle and include your dependency
 
-```xml title="/res/xml/values/prefs_sensor.xml"
-    implementation project(':sensorhub-android-sensorName')
+```xml title="/res/xml/values/prefs_sensor.xml" showLineNumbers
+implementation project(':sensorhub-android-sensorName')
 ```
 
 4. Sync Gradle after modifying the `build.gradle`
@@ -42,19 +42,12 @@ external drivers can be things connected through the android device through Blue
 1. Open the `prefs_sensor.xml` file in the `res/xml` directory of `sensorhub-android-app`.
 2. Add an entry to enable the sensor in the UI:
 
-```xml title="/res/xml/prefs_sensor.xml"
+```xml title="/res/xml/prefs_sensor.xml" showLineNumbers
 <SwitchPreference
     android:defaultValue="false"
     android:key="sensor_enabled"
     android:summary="Enable streaming of Sensor"
     android:title="Sensor Data" />
-
-<EditTextPreference
-    android:defaultValue="00:00:00:00:00:00"
-    android:inputType="text"
-    android:key="bluetooth_address"
-    android:singleLine="true"
-    android:title="Sensor Bluetooth Address" />
 
 <MultiSelectListPreference
     android:key="sensor_options"
@@ -72,7 +65,7 @@ external drivers can be things connected through the android device through Blue
 1. Open `res/values/strings.xml`
 2. Add the sensors display name:
 
-```xml
+```xml showLineNumbers
 <string name="sensor_name">Sensor Name</string>
 ```
 
@@ -80,44 +73,40 @@ external drivers can be things connected through the android device through Blue
 1. Import your sensor at the top of the file
 2. Update the `Sensors` enum to include the new sensor name
 
-```java title="/src/org/sensorhub.android/MainActvity.java"
+```java title="/src/org/sensorhub.android/MainActvity.java" showLineNumbers
 enum Sensors{
 
     //... rest of sensors
+    //highlight-start
     sensorName,
+    //highlight-end
 }
 
 ```
 
 
-3. Modify the `updateConfig` method to check if the sensor is enabled and configure it accordingly:
+3. Add to the `updateConfig` method to check if the sensor is enabled. If it is, add it to 
+`sensorhubConfig`. How this is done depends on the sensor. For example, the Template sensor we've been following only needs a few things:
 
-```java title="/src/org/sensorhub.android/MainActvity.java"
+```java title="/src/org/sensorhub.android/MainActvity.java" showLineNumbers
     protected void updateConfig(SharedPreferences prefs, String runName) {
 
     // rest of code
 
+    //highlight-next-line 
     enabled = prefs.getBoolean("sensor_enabled", false);
-
-    if (enabled) {
-        BleConfig bleConf = new BleConfig();
-        bleConf.id = "BLE";
-        bleConf.moduleClass = BleNetwork.class.getCanonicalName();
-        bleConf.androidContext = this.getApplicationContext();
-        bleConf.autoStart = true;(buil)
-        sensorhubConfig.add(bleConf);
-
-        SensorConfig config = new SensorConfig();
+    if(enabled){
+        Config config = new Config();
         config.id = "SENSOR";
         config.name = "Sensor [" + deviceName + "]";
         config.autoStart = true;
-        config.networkID = bleConf.id;
-        config.btAddress = prefs.getString("sensor_bt_address", null);
-        config.androidContext = this.getApplicationContext();
+        config.lastUpdated = ANDROID_SENSORS_LAST_UPDATED;
+        //highlight-next-line
         sensorhubConfig.add(config);
     }
+   
 }
 ```
 
 ### Step 7: Build and Test the Integration
-<!-- - After completing these steps, follow the [Build Guide](build.md) to compile and test your changes in the OSH Android app. -->
+- After completing these steps, follow the [Build Guide](build.md) to compile and test your changes in the OSH Android app.
