@@ -16,7 +16,7 @@ There are pre-configured distributions for the most common devices:
 - **Desktop Linux**
 - **Windows**
 
-See the [Install Section](LINK) for instructions on how to setup **OSH** on your device. 
+<!-- See the [Install Section](LINK) for instructions on how to setup **OSH** on your device.  -->
 
 
 ## Using Maven

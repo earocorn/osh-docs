@@ -29,7 +29,7 @@ external drivers can be things connected through the android device through Blue
 2. Rename the project to 'sensorhub-android-sensorName'
 3. Navigate to the `sensorhub-android-app' build.gradle and include your dependency
 
-```
+```xml title="/res/xml/values/prefs_sensor.xml"
     implementation project(':sensorhub-android-sensorName')
 ```
 
@@ -42,7 +42,7 @@ external drivers can be things connected through the android device through Blue
 1. Open the `prefs_sensor.xml` file in the `res/xml` directory of `sensorhub-android-app`.
 2. Add an entry to enable the sensor in the UI:
 
-```
+```xml title="/res/xml/prefs_sensor.xml"
 <SwitchPreference
     android:defaultValue="false"
     android:key="sensor_enabled"
@@ -72,7 +72,7 @@ external drivers can be things connected through the android device through Blue
 1. Open `res/values/strings.xml`
 2. Add the sensors display name:
 
-```
+```xml
 <string name="sensor_name">Sensor Name</string>
 ```
 
@@ -80,7 +80,7 @@ external drivers can be things connected through the android device through Blue
 1. Import your sensor at the top of the file
 2. Update the `Sensors` enum to include the new sensor name
 
-```
+```java title="/src/org/sensorhub.android/MainActvity.java"
 enum Sensors{
 
     //... rest of sensors
@@ -92,7 +92,7 @@ enum Sensors{
 
 3. Modify the `updateConfig` method to check if the sensor is enabled and configure it accordingly:
 
-```java
+```java title="/src/org/sensorhub.android/MainActvity.java"
     protected void updateConfig(SharedPreferences prefs, String runName) {
 
     // rest of code

@@ -4,11 +4,11 @@ sidebar_position: 1
 ---
 
 # User's Guide
-This guide will walk you through basics of using OpenSensorHub. I you haven't installed it on your platform yet, please do so first by following instructions on the [Download](LINK) and [Install](LINK) pages.
+<!-- This guide will walk you through basics of using OpenSensorHub. I you haven't installed it on your platform yet, please do so first by following instructions on the [Download](LINK) and [Install](LINK) pages. -->
 
 
 ## Web-based Admin Interface
-The easiest way to use SensorHub is via the web-based interface. However, if something is not available from the UI, you can always edit the configuration file manually (See section [Configuration](LINK) File).
+<!-- The easiest way to use SensorHub is via the web-based interface. However, if something is not available from the UI, you can always edit the configuration file manually (See section [Configuration](LINK) File). -->
 
 When SensorHub is running, you can connect to the following URL to access the administration page:
 ```
