@@ -73,12 +73,7 @@ const config: Config = {
           position: 'right',
           label: 'Reference',
         },
-        {
-          type: 'docSidebar',
-          sidebarId: 'communitySidebar',
-          position: 'right',
-          label: 'Community',
-        }, 
+
         {
           href: 'https://github.com/opensensorhub',
           position: 'right',
