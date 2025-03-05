@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+// import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
@@ -11,14 +11,20 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx(styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
+
+        <img src="/img/OSH-Logo-NoText.png" style={{width: 100}}/>
+        <Heading as="h1" className="osh-title">
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
       
-    
+        <div className="row">
+          <button className="button-dark">Learn OSH</button>
+
+          <button className="button-light">API Reference</button>
+        </div>
       </div>
     </header>
   );

@@ -18,7 +18,6 @@ This page guides you through the installation process for **OpenSensorHub** bina
     - Windows
     - Linux
     - RaspberryPi
-    - Intel Edison
     - Most ARM boards (with JVM)
 
 ## Setup

@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'The complete reference for OpenSensorHub',
-  tagline: '',
+  title: 'OpenSensorHub',
+  tagline: 'A ',
   favicon: 'img/OSH-Logo-NoText.png',
 
   // Set the production url of your site here
@@ -56,33 +56,34 @@ const config: Config = {
     navbar: {
       title: 'OpenSensorHub',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'OSH Logo',
         src: 'img/OSH-Logo-NoText.png',
       },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'guidesSidebar',
-          position: 'left',
-          label: 'Guides',
+          sidebarId: 'learnSidebar',
+          position: 'right',
+          label: 'Learn',
         },
-        // {
-        //   type: 'docSidebar',
-        //   sidebarId: 'archSidebar',
-        //   position: 'left',
-        //   label: 'Architectures',
-        // },
+
         {
           type: 'docSidebar',
-          sidebarId: 'exampleSidebar',
-          position: 'left',
-          label: 'Examples',
+          sidebarId: 'referenceSidebar',
+          position: 'right',
+          label: 'Reference',
         },
-      
+        {
+          type: 'docSidebar',
+          sidebarId: 'communitySidebar',
+          position: 'right',
+          label: 'Community',
+        }, 
         {
           href: 'https://github.com/opensensorhub',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
