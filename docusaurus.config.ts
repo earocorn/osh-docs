@@ -144,6 +144,10 @@ const config: Config = {
       additionalLanguages: ['git', 'java', 'gradle', 'typescript', 'docker', 'http'],
     },
   } satisfies Preset.ThemeConfig,
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 };
 
 export default config;

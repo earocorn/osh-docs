@@ -1,12 +1,10 @@
 ---
-title: ❌  Developer's Guide
+title: ❌  Developer Introduction
 sidebar_position: 1
 description: Learn how to set up a development environment and contribute to OpenSensorHub (OSH).
 ---
 
-## Introduction
-
-Welcome to the **OpenSensorHub (OSH) Developer's Guide**. This guide will help you set up your development environment using Eclipse and extend OSH with custom sensor drivers, web services, and other components.
+Welcome to the **OpenSensorHub (OSH) Developer's Guide**. This guide will help you set up your development environment using [IntelliJ IDEA](https://www.jetbrains.com/idea/) and extend OSH with custom sensor drivers, web services, and other components.
 
 We encourage contributions! If you improve the project, consider submitting a **Pull Request** to share your work with the community. While contributing new modules is optional, any modifications to existing source files must be publicly available, as per our licensing terms.
 
@@ -24,15 +22,15 @@ Choose an option based on your level of involvement:
 ## Exploring the Code
 You can explore the OSH source code on GitHub:
 
-- **Core Modules:** [osh-core](https://github.com/opensensorhub/osh-core)
-- **Add-ons:** [osh-addons](https://github.com/opensensorhub/osh-addons)
-  - **Communication Protocols:** [comm](https://github.com/opensensorhub/osh-addons/tree/master/comm)
-  - **Sensor Drivers:**  [sensors](https://github.com/opensensorhub/osh-addons/tree/master/sensors)
-  - **Processing Modules:** [processing](https://github.com/opensensorhub/osh-addons/tree/master/processing)
-  - **Storage Backends:** [persistence](https://github.com/opensensorhub/osh-addons/tree/master/persistence)
-  - **External Services:** [services](https://github.com/opensensorhub/osh-addons/tree/master/services)
-  - **Security:** [security](https://github.com/opensensorhub/osh-addons/tree/master/security)
-- **Android Development:** [osh-android](https://github.com/opensensorhub/osh-android)
+- **Core Modules** [osh-core](https://github.com/opensensorhub/osh-core)
+- **Add-ons** [osh-addons](https://github.com/opensensorhub/osh-addons)
+  - **Communication Protocols** [comm](https://github.com/opensensorhub/osh-addons/tree/master/comm)
+  - **Sensor Drivers**  [sensors](https://github.com/opensensorhub/osh-addons/tree/master/sensors)
+  - **Processing Modules** [processing](https://github.com/opensensorhub/osh-addons/tree/master/processing)
+  - **Storage Backends** [persistence](https://github.com/opensensorhub/osh-addons/tree/master/persistence)
+  - **External Services** [services](https://github.com/opensensorhub/osh-addons/tree/master/services)
+  - **Security** [security](https://github.com/opensensorhub/osh-addons/tree/master/security)
+- **Android Development** [osh-android](https://github.com/opensensorhub/osh-android)
 
 
 ## Getting the Code
