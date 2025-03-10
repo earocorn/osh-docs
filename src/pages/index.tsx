@@ -21,9 +21,16 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
       
         <div className="row">
-          <button className="button-dark">Learn OSH</button>
+          <Link to={"/docs/osh-node/introduction"}>
+            <button className="button-dark">OSH Node</button>
 
-          <button className="button-light">API Reference</button>
+          </Link>
+
+          <Link to={"/docs/osh-connect/getting-started"}>
+            <button className="button-light">OSH Connect</button>
+          </Link>
+       
+         
         </div>
       </div>
     </header>

@@ -1,0 +1,8 @@
+{
+  "label": "OSGi",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "A guide to OSGi"
+  }
+}

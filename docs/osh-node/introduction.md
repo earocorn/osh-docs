@@ -44,3 +44,4 @@ A state.txt file containing a list of key/value pairs corresponding to state pro
 Zero or more .dat files that contain arbitrary data saved by the module
 
 
+### Supported Protocols and Devices

@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'OpenSensorHub',
-  tagline: 'A ',
+  tagline: 'Everything you need to harness OpenSensorHub',
   favicon: 'img/OSH-Logo-NoText.png',
 
   // Set the production url of your site here
@@ -62,18 +62,22 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'learnSidebar',
+          sidebarId: 'oshNodeSidebar',
           position: 'right',
-          label: 'Learn',
+          label: 'OSH Node',
         },
-
+            {
+          type: 'docSidebar',
+          sidebarId: 'oshConnectSidebar',
+          position: 'right',
+          label: 'OSH Connect',
+        },
         {
           type: 'docSidebar',
-          sidebarId: 'referenceSidebar',
+          sidebarId: 'communitySidebar',
           position: 'right',
-          label: 'Reference',
+          label: 'Community',
         },
-
         {
           href: 'https://github.com/opensensorhub',
           position: 'right',
@@ -86,31 +90,35 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Learn OpenSensorHub',
           items: [
             {
-              label: 'Getting Started',
-              to: 'docs/category/overview-2',
+              label: 'OSH Node',
+              to: '/docs/osh-node/introduction',
             },
             {
-              label: 'User Documentation',
-              to: '/docs/category/user-documentation-2',
-            },
-            {
-              label: 'Developer Docs',
-              to: '/docs/category/developer-docs-2',
-            },
-            {
-              label: 'Tutorials',
-              to: '/docs/category/tutorials-2',
-            },
-            
+              label: 'OSH Connect',
+              to: '/docs/osh-connect/getting-started',
+            },  
           ],
         },
+        // {
+        //   title: 'API Reference',
+        //   items: [
+        //     {
+        //       label: 'OpenSensorHub API',
+        //       to: '/reference',
+        //     },        
+        //   ],
+        // },
         {
           title: 'Community',
           items: [
-        
+      
+            {
+              label: 'Contribute to OSH',
+              href: '/docs/community/contribution-guide'
+            },
             {
               label: 'OpenSensorHub',
               href: 'https://opensensorhub.org/',
@@ -126,12 +134,16 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'OSH Blog',
+              label: 'Blog',
               href: 'https://opensensorhub.org/blog/',
             },
             {
               label: 'GitHub',
               href: 'https://github.com/opensensorhub',
+            },
+            {
+              label: 'YouTube',
+              href: 'https://youtube.com/opensensorhub',
             },
           ],
         },
