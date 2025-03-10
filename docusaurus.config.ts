@@ -87,7 +87,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
           title: 'Learn OpenSensorHub',
@@ -102,15 +102,6 @@ const config: Config = {
             },  
           ],
         },
-        // {
-        //   title: 'API Reference',
-        //   items: [
-        //     {
-        //       label: 'OpenSensorHub API',
-        //       to: '/reference',
-        //     },        
-        //   ],
-        // },
         {
           title: 'Community',
           items: [

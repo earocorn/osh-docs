@@ -24,14 +24,14 @@ sidebar_position: 7
 ## Updating Version and Distribution Name
 
 ### Version Name
-![updating package name](../assets/osh/sensor-dev/package-name.png)
+<!-- ![updating package name](../assets/osh/sensor-dev/package-name.png) -->
 
 1. Open project wide build.gradle
 2. Change the version 
 3. Refresh Gradle
 
 ### Distribution Name
-![updating package name](../assets/osh/sensor-dev/package-name.png)
+<!-- ![updating package name](../assets/osh/sensor-dev/package-name.png) -->
 
 1. Open project wide build.gradle
 2. Change 'distributionBaseName'
@@ -41,7 +41,7 @@ sidebar_position: 7
 6. Refresh Gradle
 
 ### Testing Version and Distribution Changes
-![updating package name](../assets/osh/sensor-dev/package-name.png)
+<!-- ![updating package name](../assets/osh/sensor-dev/package-name.png) -->
 
 1. Execute a 'build task'
     - Click the 'gradle' on the right side of the screen
@@ -53,60 +53,93 @@ sidebar_position: 7
 3. Target - if build succeeds, it will create 'build/distributions/ [name]-[version].zip'
 
 
-### Creating Driver Framework 
-![updating package name](../assets/osh/sensor-dev/package-name.png)
+## Creating Driver Framework 
+![updating package name](../assets/osh/sensor-dev/template1.png)
 
-1. Copy the Driver Template
+1. Copy the Driver Template by right clicking the 'senosrhub-driver-template' module and click 'Copy'
 2. Paste Template back into the 'Sensors' directory
 3. Rename Module
     - Assign a new Name to the module
     - Click OK button
-4. Successfully created Module
+4. Below is a *successfully* created Module,
     - Add files if to be managed by Git, otherwise cancel
+
+![updating package name](../assets/osh/sensor-dev/template5.png)
+
 
 ### Updating Package Name
 
-![updating package name](../assets/osh/sensor-dev/package-name.png)
-
 1. Navigate to the Driver Package
-2. Update the package name
+2. Update the package name by right clicking the package name and update the 
 3. Click 'Refactor' button
+
+![updating package name](../assets/osh/sensor-dev/template8.png)
 
 ### Updating Driver Build Scripts
 1. Open the 'sensorhub-driver-[name]/build.gradle'
 2. Edit the description
-- This field contains the name that will be assigned to your driver and visibile in the OpenSensorHub Admin Panel. 
+    - This field contains the name that will be assigned to your driver and visibile in the OpenSensorHub Admin Panel. 
 3. Edit the ext.details
-- This field contains the description assigned to your driver and visible in OpenSensorHub Admin Panel
+    - This field contains the description assigned to your driver and visible in OpenSensorHub Admin Panel
 4. Update the Manifest Details
-- Edit the derails within the 'ext.pom' code block
-    - id: nickname , email, etc
-    - name
-    - organization
-    - organizationUrl
+    - Edit the derails within the 'ext.pom' code block
+        - id: nickname , email, etc
+        - name
+        - organization
+        - organizationUrl
 
 
 ### Adding Sensor Driver to Build Target
 1. Open the project wide build.gradle
-2. In the dependencies block they are examples commented out on how to format your additions
-3. Add dependency for driver
+2. Add dependency for the driver
+
 ```gradle
     "implementation project(':sensorhub-driver-[name]')"
 ```
-4. Open the settings.gradle
-5. Uncomment FileTree Builder
-6. Modify FileTree Builder
+
+3. Open the settings.gradle
+4. Uncomment FileTree Builder
+5. Modify FileTree Builder
     - Update the FileTree Builder to ignore project folders that have 'template' in the name
-7. Refresh Gradle
-8. Your new driver is ready to be built!
-    - Execute a 'build task'
+6. Refresh Gradle
+7. Your new driver is ready to be built!
+
+### Building Project
+1. Execute a 'build task'
         - Click the 'gradle' on the right side of the screen
         - Under osh-node-dev-tempalte(root), right click the 'Tasks> Build> build'
         - Click the 'Edit Run Configuration'
         - in the 'Run' input box, type in 'build -x test -x osgi' and click 'OK'
         - Then Click the Green Run Button on the top toolbar to run the new Build
-    - Check the console 
-    - Target - if build succeeds, it will create 'build/distributions/ [name]-[version].zip'
+2. Check the console 
+3. Target - if build succeeds, it will create 'build/distributions/ [name]-[version].zip'
+
+### Verifying Build and Deployment
+1. Open your file directory
+2. Navigate to the location where you created your project, and go to 'osh-node-dev-template/build/distributions'
+3. Right click the zipped archive folder, and unzip it
+4. Navigate to extracted folder or directory
+5. Launch the Server by clicking the 'launch.bat' on Windows and 'launch.sh' for Linux machines.
+6. On a successful launch the console.log will display initialization messages and ModuleRegistery started
+
+### Login to the Admin Console
+1. Open supported browser, and navigate to 'localhost:8181/sensorhub/admin'
+2. Log in using these creditentials
+    - username: admin
+    - password: admin
+3. Right click in the blanke area with the "Sensors" drawer
+4. Select 'Add New Module'
+5. Verify Driver Module is listed
+    - The Sensor Driver should be listed with version, description and author
+    - If your driver is not listed, (Click here)[/debugging] for help debugging the issue
+6. Close the dialog
+7. Click 'Shutdown' on the Admin Panel to shutdown the Node
+
+**Note:** At this point you have
+    - Created a skeleton for a driver
+    - Configured the build scripts to build and include the driver module in the build target
+    - Deployed the instance of OpenSensorHub
+    - Verified the Simulated Driver module is recognized by OpenSensorHub
 
 
 # Adding SensorML Description Programmatically
@@ -143,7 +176,7 @@ public class Sensor extends AbstractSensorModule<Config> {
 }
 ```
 
-## updateSensorDescription
+## Update Sensor Desciprtion
 This method should be called whenever the sensor description needs to be regenerated.
 
 Default implementaion reads the base description from the SensorML file if provided and then appends the unique sensor identifier, time validity and the description of all registered outputs and control inputs. 
@@ -163,5 +196,91 @@ All sensor description operations should be performed within
 
   }
 ```
-Make sure to call method on parent via 'super'
+**Note:** Make sure to call method on parent via 'super'
 
+
+
+
+
+## Building the Sensor Output
+
+### Describing and Defining the Output **AbstractSensorOutput**
+Class providing the default implementaiton of common output API methods. This can be used as the base for most sensor outputs implementations as it aids in generating the following:
+    - Record Description
+        - Output Description: includes the name, label, description and structure
+    - Record Encoding
+        - The default encoding to use when publishing the sensors observations
+        - Encoding examples:
+            - Binary
+            - CSV
+            - Text Encoding
+
+### Creating the Output Description
+When creating the output description you are actually performing two integratl operations at the same time
+    1. Building the SensorML description of the output
+    2. Defining the data structure that will be instantiated and used to populate the observations for publication
+
+**Note:** The order that you add fields to the output description's DataRecord will be the same order in which you populate the outputs data structure.
+
+1. Navigate and open the Output.java file
+2. Update the properties:
+    - Three constants are provided to easily modify the descriptive elements of the output
+        - SENSOR_OUTPUT_NAME
+        - SENSOR_OUTPUT_LABEL
+        - SENSOR_OUTPUT_DESCRIPTION
+
+![three constants](../assets/osh/sensor-dev/template9.png)
+
+The following properties are provided and will be defined in the **doInit** method of the class.
+    - DataRecord: used to describe and define the structure of the output
+    - DataEncoding: used to provide the default encoding method for the particular output
+
+Other Properties:
+ - allow for multithreaded execution
+    - stopProcessing - boolean
+    - processingLock – Object for synchronization
+    - Worker – Handle to a thread that will run our output loop
+- allow timing to be computed for the average sample rate
+    - setCount, timingHistogram, histogramLock, and MAX_NUM_
+    - TIMING_SAMPLES constant
+
+### Creating the Datastructure
+ 1. Update the "GeoPosHelper" in the **doInit** method to "SWEHelper"
+ 2. Create the record by assigning it a name, definition, and description.
+ 3. Add the Sampling time
+
+ **Note:** All data records must include a sampling time as the first field.
+
+ Adding other fields to the data record:
+ Depending on the type of fields being added, there are certain properties that must be specified through the Helper APIs.
+
+ Quantity Fields must include an ontological definition (CF Standard Names), a label, and units of measure.
+
+ For example, if your sensor measured temperature and pressure here is how you would define those fields in your data structure:
+
+ ![temp and pressure](../assets/osh/sensor-dev/template1.png)
+
+```java title="Output.java"
+public void doInit(){
+
+    datastruct = swefactory.createRecord()
+        .name(getName())
+        .definition("urn:osh:data:weather")
+        .description("Weather Simulator Measurements")
+
+        .addField("time", sweFactory.createTime()
+            .asSamplingTimeIsoUTC())
+        .addField("temperature", sweFactory.createQuantity()
+            .definition(SWEHelper.getCfUri("air_temperature"))
+            .label("Air Temperature")
+            .uomCode("Cel"))
+        .addField("pressure", sweFactory.createQuantity()
+            .definition(SWEHelper.getCfUri("air_pressure"))
+            .label("Atmospheric Pressure")
+            .uomCode("hPa"))
+        .build();
+
+}
+```
+
+### Controlling Outputs Execution
