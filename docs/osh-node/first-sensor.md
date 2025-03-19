@@ -15,37 +15,33 @@ sidebar_position: 7
 - osh-addons & osh-core Submodules
 
 
+## Getting Started
+- After cloning the osh-node-dev-template repository and including the submodules osh-core and osh-addons, open the project in your preferred IDE. We reccomend IntelliJ.
 
 
-### Open Existing Project
-- After cloning the osh-node-dev-template open the project in your preferred IDE.
+### Updating the Version Name
+<!-- ![updating package name](../assets/osh/sensor-dev/package-name.png) -->
 
+1. Open project-wide `build.gradle`
+2. Change the `version` field
+3. Refresh Gradle to apply changes.
 
-## Updating Version and Distribution Name
-
-### Version Name
+### Updating the Distribution Name
 <!-- ![updating package name](../assets/osh/sensor-dev/package-name.png) -->
 
 1. Open project wide build.gradle
-2. Change the version 
-3. Refresh Gradle
-
-### Distribution Name
-<!-- ![updating package name](../assets/osh/sensor-dev/package-name.png) -->
-
-1. Open project wide build.gradle
-2. Change 'distributionBaseName'
-3. Refresh Gradle
-4. Open project wide settings.gradle
-5. Change rootProject.name
-6. Refresh Gradle
+2. Change `distributionBaseName`
+3. Refresh Gradle to apply changes
+4. Open project wide `settings.gradle`
+5. Change `rootProject.name`
+6. Refresh Gradle to apply changes
 
 ### Testing Version and Distribution Changes
 <!-- ![updating package name](../assets/osh/sensor-dev/package-name.png) -->
 
-1. Execute a 'build task'
-    - Click the 'gradle' on the right side of the screen
-    - Under osh-node-dev-tempalte(root), right click the 'Tasks> Build> build'
+1. Execute a `build task`
+    - Click the `gradle` on the right side of the screen
+    - Under osh-node-dev-template(root), right click the `Tasks> Build> build`
     - Click the 'Edit Run Configuration'
     - in the 'Run' input box, type in 'build -x test -x osgi' and click 'OK'
     - Then Click the Green Run Button on the top toolbar to run the new Build
@@ -54,13 +50,13 @@ sidebar_position: 7
 
 
 ## Creating Driver Framework 
+
+### Copying the Driver Template
 ![updating package name](../assets/osh/sensor-dev/template1.png)
 
 1. Copy the Driver Template by right clicking the 'senosrhub-driver-template' module and click 'Copy'
 2. Paste Template back into the 'Sensors' directory
-3. Rename Module
-    - Assign a new Name to the module
-    - Click OK button
+3. Rename Module by removing 'template' and entering a relevant name
 4. Below is a *successfully* created Module,
     - Add files if to be managed by Git, otherwise cancel
 
@@ -68,7 +64,6 @@ sidebar_position: 7
 
 
 ### Updating Package Name
-
 1. Navigate to the Driver Package
 2. Update the package name by right clicking the package name and update the 
 3. Click 'Refactor' button
@@ -107,12 +102,12 @@ sidebar_position: 7
 ### Building Project
 1. Execute a 'build task'
         - Click the 'gradle' on the right side of the screen
-        - Under osh-node-dev-tempalte(root), right click the 'Tasks> Build> build'
+        - Under osh-node-dev-tempalte(root), right click the `Tasks> Build> build`
         - Click the 'Edit Run Configuration'
-        - in the 'Run' input box, type in 'build -x test -x osgi' and click 'OK'
+        - in the 'Run' input box, type in `build -x test -x osgi` and click 'OK'
         - Then Click the Green Run Button on the top toolbar to run the new Build
 2. Check the console 
-3. Target - if build succeeds, it will create 'build/distributions/ [name]-[version].zip'
+3. Target - if build succeeds, it will create `build/distributions/ [name]-[version].zip`
 
 ### Verifying Build and Deployment
 1. Open your file directory
@@ -122,32 +117,29 @@ sidebar_position: 7
 5. Launch the Server by clicking the 'launch.bat' on Windows and 'launch.sh' for Linux machines.
 6. On a successful launch the console.log will display initialization messages and ModuleRegistery started
 
-### Login to the Admin Console
-1. Open supported browser, and navigate to 'localhost:8181/sensorhub/admin'
-2. Log in using these creditentials
-    - username: admin
-    - password: admin
-3. Right click in the blanke area with the "Sensors" drawer
-4. Select 'Add New Module'
-5. Verify Driver Module is listed
-    - The Sensor Driver should be listed with version, description and author
-    - If your driver is not listed, (Click here)[/debugging] for help debugging the issue
-6. Close the dialog
-7. Click 'Shutdown' on the Admin Panel to shutdown the Node
+### Logging into the Admin Console
+1. Open supported browser, and navigate to `localhost:8181/sensorhub/admin`
+2. Log in with:
+    - username: `admin`
+    - password: `admin`
+3. Right click in the blank area with the "Sensors" drawer and select 'Add New Module'
+4. Verify Driver Module appears with a version, description and author
+    - If your driver is not listed, refer to debuggin steps
+6. Click 'Shutdown' in the Admin Panel to stop the Node
 
-**Note:** At this point you have
+### At this stage you have:
     - Created a skeleton for a driver
-    - Configured the build scripts to build and include the driver module in the build target
-    - Deployed the instance of OpenSensorHub
-    - Verified the Simulated Driver module is recognized by OpenSensorHub
+    - Configured the build scripts to include the driver in the build target
+    - Deployed an OpenSensorHub instance
+    - Verified that OpenSensorHub recognizes the driver module.
 
 
-# Adding SensorML Description Programmatically
+## Adding SensorML Description Programmatically
 
-## Introduction
+### Introduction
 This guide explains how to add a SensorML description programmatically using the OpenSensorHub API.
 
-## API: AbstractSensorModule
+### Using `AbstractSensorModule`
 The `AbstractSensorModule` class provides a default implementation of common sensor API methods. It generates default values for:
 - A random Unique ID using a UUID.
 - A short XML ID.
@@ -156,7 +148,7 @@ The `AbstractSensorModule` class provides a default implementation of common sen
 
 All these defaults can be overridden by derived classes, which also gain access to helper methods for automatic reconnection.
 
-## Extending AbstractSensorModule
+### Extending `AbstractSensorModule`
 To implement a sensor, extend the `AbstractSensorModule` class:
 
 ```java
@@ -186,8 +178,8 @@ Override method to provide sensor description programmatically
 1. Navigate to 'Sensor.java' and Open the file
 2. Override 'updateSensorDescription'
 
-### Building the description
-All sensor description operations should be performed within
+### Updating the Sensor Description
+Override updateSensorDescription when updating sensor details:
 
 ```java
  synchronized (sensorDescLock) {
@@ -196,24 +188,18 @@ All sensor description operations should be performed within
 
   }
 ```
-**Note:** Make sure to call method on parent via 'super'
-
-
-
+Call super to ensure correct execution.
 
 
 ## Building the Sensor Output
 
-### Describing and Defining the Output **AbstractSensorOutput**
-Class providing the default implementaiton of common output API methods. This can be used as the base for most sensor outputs implementations as it aids in generating the following:
-    - Record Description
-        - Output Description: includes the name, label, description and structure
-    - Record Encoding
-        - The default encoding to use when publishing the sensors observations
-        - Encoding examples:
-            - Binary
-            - CSV
-            - Text Encoding
+### `AbstractSensorOutput`
+This class provides default implementations for output API methods, including:
+    - Output Description: includes the name, label, description and structure
+    - Default Encoding to use when publishing the sensors observations
+        - Binary
+        - CSV
+        - Text Encoding
 
 ### Creating the Output Description
 When creating the output description you are actually performing two integratl operations at the same time
@@ -284,3 +270,12 @@ public void doInit(){
 ```
 
 ### Controlling Outputs Execution
+To control the output execution there are a couple of provided methods in the Output file
+    - doStart: called by the parent Sensor to start the output process
+    - doStop: called by the parent Sensor to stop the output process
+    - isAlive: reports the status of the worked thread is still running in output to the parent Sensor.
+    - getRecordDescription: uses the DataRecord dataStruct to provide the description and data structure for the output to OpenSensorHub
+    - getRecommendedEncoding: reports the default encoding for the output
+    - getAverageSamplingPeriod: computes the average from the historical time between 10 consecutive samples
+
+### Publishing Observations
