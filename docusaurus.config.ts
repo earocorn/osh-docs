@@ -98,7 +98,7 @@ const config: Config = {
             },
             {
               label: 'OSH Connect',
-              to: '/docs/osh-connect/getting-started',
+              to: '/docs/osh-connect/introduction',
             },  
           ],
         },

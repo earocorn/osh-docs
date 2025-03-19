@@ -26,7 +26,7 @@ function HomepageHeader() {
 
           </Link>
 
-          <Link to={"/docs/osh-connect/getting-started"}>
+          <Link to={"/docs/osh-connect/introduction"}>
             <button className="button-light">OSH Connect</button>
           </Link>
        
