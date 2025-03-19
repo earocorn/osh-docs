@@ -21,7 +21,7 @@ This page guides you through the installation process for **OpenSensorHub** bina
     - Most ARM boards (with JVM)
 
 ## Setup
-1. Downaload the latest OSH Binary release from the [OSH GitHub](https://github.com/opensensorhub/osh-core/releases) Release page
+1. Download the latest OSH Binary release from the [OSH GitHub](https://github.com/opensensorhub/osh-core/releases) Release page
 2. Unzip the downloaded file to a directory of your choice.
 3. Navigate into the directory with the launch scripts and execute the `launch.sh` for Linux or MacOS script or the `launch.bat` fpr Windows
     - You may get a warning, you can click `Run Anyways`

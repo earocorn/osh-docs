@@ -97,3 +97,30 @@
     color: #fff;
     text-decoration: none;
   }
+
+  /* Make the TOC float on the side */
+  .table-of-contents {
+    position: fixed;
+    top: 20px; /* Distance from the top of the page */
+    right: 20px; /* Distance from the right edge of the page */
+    max-width: 250px; /* Set a maximum width for the TOC */
+    width: 100%; /* Ensure it takes up 100% of the available space */
+    z-index: 1000; /* Ensure it stays on top */
+    background-color: #fff; /* Optional: Add background color for readability */
+    border: 1px solid #ddd; /* Optional: Add a border for visibility */
+    padding: 10px; /* Optional: Add padding for spacing */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better appearance */
+    overflow-y: auto; /* Ensure it scrolls if content is too long */
+    height: calc(100vh - 40px); /* Adjust height to fit screen */
+  }
+
+  /* Optional: Add responsiveness */
+  @media (max-width: 768px) {
+    .table-of-contents {
+      position: static; /* Make TOC behave normally on smaller screens */
+      max-width: none;
+      width: auto;
+      background-color: transparent;
+      border: none;
+    }
+  }

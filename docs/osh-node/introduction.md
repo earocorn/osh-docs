@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 
 # User's Guide
-<!-- This guide will walk you through basics of using OpenSensorHub. I you haven't installed it on your platform yet, please do so first by following instructions on the [Download](LINK) and [Install](LINK) pages. -->
+<!-- This guide will walk you through basics of using OpenSensorHub. If you haven't installed it on your platform yet, please do so first by following instructions on the [Download](LINK) and [Install](LINK) pages. -->
 
 
 ## Web-based Admin Interface

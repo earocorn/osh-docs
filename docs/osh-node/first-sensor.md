@@ -45,7 +45,7 @@ sidebar_position: 7
 
 1. Execute a 'build task'
     - Click the 'gradle' on the right side of the screen
-    - Under osh-node-dev-tempalte(root), right click the 'Tasks> Build> build'
+    - Under osh-node-dev-template(root), right click the 'Tasks> Build> build'
     - Click the 'Edit Run Configuration'
     - in the 'Run' input box, type in 'build -x test -x osgi' and click 'OK'
     - Then Click the Green Run Button on the top toolbar to run the new Build
@@ -56,7 +56,7 @@ sidebar_position: 7
 ## Creating Driver Framework 
 ![updating package name](../assets/osh/sensor-dev/template1.png)
 
-1. Copy the Driver Template by right clicking the 'senosrhub-driver-template' module and click 'Copy'
+1. Copy the Driver Template by right-clicking the 'sensorhub-driver-template' module and click 'Copy'
 2. Paste Template back into the 'Sensors' directory
 3. Rename Module
     - Assign a new Name to the module
@@ -70,7 +70,7 @@ sidebar_position: 7
 ### Updating Package Name
 
 1. Navigate to the Driver Package
-2. Update the package name by right clicking the package name and update the 
+2. Update the package name by right-clicking the package name and update the 
 3. Click 'Refactor' button
 
 ![updating package name](../assets/osh/sensor-dev/template8.png)
@@ -107,7 +107,7 @@ sidebar_position: 7
 ### Building Project
 1. Execute a 'build task'
         - Click the 'gradle' on the right side of the screen
-        - Under osh-node-dev-tempalte(root), right click the 'Tasks> Build> build'
+        - Under osh-node-dev-template(root), right-click the 'Tasks> Build> build'
         - Click the 'Edit Run Configuration'
         - in the 'Run' input box, type in 'build -x test -x osgi' and click 'OK'
         - Then Click the Green Run Button on the top toolbar to run the new Build
@@ -117,17 +117,17 @@ sidebar_position: 7
 ### Verifying Build and Deployment
 1. Open your file directory
 2. Navigate to the location where you created your project, and go to 'osh-node-dev-template/build/distributions'
-3. Right click the zipped archive folder, and unzip it
+3. Right-click the zipped archive folder, and unzip it
 4. Navigate to extracted folder or directory
 5. Launch the Server by clicking the 'launch.bat' on Windows and 'launch.sh' for Linux machines.
 6. On a successful launch the console.log will display initialization messages and ModuleRegistery started
 
 ### Login to the Admin Console
 1. Open supported browser, and navigate to 'localhost:8181/sensorhub/admin'
-2. Log in using these creditentials
+2. Log in using these credentials
     - username: admin
     - password: admin
-3. Right click in the blanke area with the "Sensors" drawer
+3. Right click in the blank area with the "Sensors" drawer
 4. Select 'Add New Module'
 5. Verify Driver Module is listed
     - The Sensor Driver should be listed with version, description and author
@@ -176,10 +176,10 @@ public class Sensor extends AbstractSensorModule<Config> {
 }
 ```
 
-## Update Sensor Desciprtion
+## Update Sensor Description
 This method should be called whenever the sensor description needs to be regenerated.
 
-Default implementaion reads the base description from the SensorML file if provided and then appends the unique sensor identifier, time validity and the description of all registered outputs and control inputs. 
+Default implementation reads the base description from the SensorML file if provided and then appends the unique sensor identifier, time validity and the description of all registered outputs and control inputs. 
 
 Override method to provide sensor description programmatically
 
@@ -205,7 +205,7 @@ All sensor description operations should be performed within
 ## Building the Sensor Output
 
 ### Describing and Defining the Output **AbstractSensorOutput**
-Class providing the default implementaiton of common output API methods. This can be used as the base for most sensor outputs implementations as it aids in generating the following:
+Class providing the default implementation of common output API methods. This can be used as the base for most sensor outputs implementations as it aids in generating the following:
     - Record Description
         - Output Description: includes the name, label, description and structure
     - Record Encoding
