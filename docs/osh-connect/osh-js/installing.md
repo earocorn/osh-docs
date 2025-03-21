@@ -1,4 +1,4 @@
 ---
-title: ❌  Deploying
+title:    Installing 
 sidebar_position: 3
 ---

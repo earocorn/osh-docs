@@ -1,5 +1,5 @@
 ---
-title: ❌  Developer Introduction
+title:    Developer Introduction
 sidebar_position: 1
 description: Learn how to set up a development environment and contribute to OpenSensorHub (OSH).
 ---

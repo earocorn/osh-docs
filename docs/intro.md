@@ -1,5 +1,5 @@
 ---
-title: ❌  OpenSensorHub Documentation
+title:   OpenSensorHub Documentation
 sidebar_position: 0
 ---
 

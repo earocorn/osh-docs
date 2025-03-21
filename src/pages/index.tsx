@@ -21,10 +21,14 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
       
         <div className="row">
-          {/* <Link to={"/docs/osh-node/introduction"} className="oshnode-btn">OSH Node</Link>
+          <Link to={"/docs/osh-node/introduction"}>
+            <button className="button-dark">OSH Node</button>
 
-          <Link to={"/docs/osh-connect/getting-started"} className="oshconnect-btn-dark">OSH Connect
-        </Link> */}
+          </Link>
+
+          <Link to={"/docs/osh-connect/introduction"}>
+            <button className="button-light">OSH Connect</button>
+          </Link>
        
          
         </div>
@@ -37,11 +41,12 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title}`}
+      // description="Documentation for all things OpenSensorHub"
+      >
       <HomepageHeader />
       <main>
-        
+    
       </main>
     </Layout>
   );
