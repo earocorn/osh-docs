@@ -1,0 +1,8 @@
+{
+  "label": "JavaScript Toolkit",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Everything related to OSHConnect JavaScript, formerly known as osh-js."
+  }
+}
