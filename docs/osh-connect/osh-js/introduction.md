@@ -1,5 +1,5 @@
 ---
-title: X Introduction
+title: Introduction
 sidebar_position: 1
 ---
 
@@ -12,8 +12,8 @@ sidebar_position: 1
 
 **OSHConnect-JS** is a pure JavaScript framework and does not require third party libraries. However, external libraries are available to build visualizations such as Leafley, OpenLayer, Cesium, Chart.js, and more.
 
-## Features 
-- Data parsing support
+## Supported Features 
+- Data parsing
     - Video data with codecs H.265, H.264, VP9, VP8
     - Any SWE Common generic such as GPS, Quaternion, etc.
     - Spectrogram, ImageDraping, Nexrad

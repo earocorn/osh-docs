@@ -1,0 +1,8 @@
+{
+  "label": "DataSources",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "DataSources with ConnectedSystems-JS"
+  }
+}
