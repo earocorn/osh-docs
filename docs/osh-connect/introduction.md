@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Introduction to OSHConnect
 
-OSHConnect is a family of client application libraries intended to provide a simple and straightforward way to interact with OpenSensorHub nodes via the [OGC API - Connected Systems](https://ogcapi.ogc.org/connectedsystems/) interface. You can learn more about how to use Connected Systems in our [Connected Systems hands on guide](/connected-systems").
+OSHConnect is a family of client application libraries intended to provide a simple and straightforward way to interact with OpenSensorHub nodes via the [OGC API - Connected Systems](https://ogcapi.ogc.org/connectedsystems/) interface. You can learn more about how to use Connected Systems in our [Connected Systems hands on guide](/docs/osh-connect/connected-systems).
 
 Below is an overview of the support for OSHConnect across C++, Python, Java, and JavaScript.
 
