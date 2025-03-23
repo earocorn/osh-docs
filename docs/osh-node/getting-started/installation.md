@@ -1,5 +1,5 @@
 ---
-title: ❌  Installation
+title:    Installation
 sidebar_position: 2
 ---
 
@@ -27,7 +27,6 @@ This page guides you through the installation process for **OpenSensorHub** bina
     - You may get a warning, you can click `Run Anyways`
 3. Check your connection by opening a supported browser and typing in this url: `http://localhost:8181/sensorhub/test`
     - This should return a message  `Sensorhub web server is up`
-
 
 
 ## Demo Configuration

@@ -1,4 +1,4 @@
 ---
-title: ❌  Testing 
+title:    Testing 
 sidebar_position: 6
 ---

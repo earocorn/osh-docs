@@ -1,5 +1,5 @@
 ---
-title: ❌  Building 
+title:    Building 
 sidebar_position: 2
 ---
 # OpenSensorHub Android Build Guide

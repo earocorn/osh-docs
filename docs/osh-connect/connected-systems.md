@@ -199,4 +199,3 @@ We can use our previous *System* as an example of how to query and select a part
 [`https://api.georobotix.io/ogc/t18/api/systems/b2rju765gua3c/datastreams`](https://api.georobotix.io/ogc/t18/api/systems/b2rju765gua3c/datastreams)
 
 Response:
-

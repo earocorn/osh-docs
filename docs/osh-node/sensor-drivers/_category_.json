@@ -1,8 +1,8 @@
 {
   "label": "Sensor Drivers",
-  "position": 7,
+  "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "A guide to developing SensorML processes"
+    "description": "A guide to developing Sensor Drivers"
   }
 }
