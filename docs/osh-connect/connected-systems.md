@@ -2,6 +2,10 @@
 title: Connected Systems
 sidebar_position: 2
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Connected Systems
 
 ## What is OGC API - Connected Systems?
@@ -70,8 +74,8 @@ These examples will be using the **GeoRobotix** test node, which is an **OpenSen
 The Connected Systems API for this test server is accessible at 
 
 [`
-https://api.georobotix.io/ogc/t18/api
-`](https://api.georobotix.io/ogc/t18/api)
+https://api.georobotix.io/ogc/demo1/api
+`](https://api.georobotix.io/ogc/demo1/api)
 
 :::tip
 **OpenSensorHub** offers an easily navigable web interface to explore the Connected Systems API. Try visiting the API in your browser!
@@ -85,101 +89,156 @@ Dynamic Data Resources are modeled with the [SWE Common Data Model](https://www.
 
 Sending an `HTTP` `GET` request to the following endpoint will yield us a list of all systems exposed through the API.
 
-[`https://api.georobotix.io/ogc/t18/api/systems`](https://api.georobotix.io/ogc/t18/api/systems)
+[`https://api.georobotix.io/ogc/demo1/api/systems`](https://api.georobotix.io/ogc/demo1/api/systems)
 
 The request will return the following:
 
-```json
-{
-  "items": [
+
+<Tabs>
+    <TabItem value="smlSystems" label="SensorML JSON">
+    ```json
     {
-      "type": "Feature",
-      "id": "b2rju765gua3c",
-      "properties": {
-        "uid": "urn:osh:sensor:uas:predator001-RT",
-        "featureType": "http://www.w3.org/ns/ssn/System",
-        "name": "Predator UAV (MISB simulated RT)",
-        "validTime": [
-          "2023-05-14T15:22:00Z",
-          "now"
+        "items": [
+        {
+            "type": "PhysicalSystem",
+            "id": "ki7dgdg90mqt6",
+            "uniqueId": "urn:osh:sensor:uas:predator001-RT",
+            "definition": "http://www.w3.org/ns/ssn/System",
+            "label": "Predator UAV (MISB simulated RT)",
+            "validTime": [
+            "2023-05-14T15:22:00Z",
+            "now"
+            ]
+        }, 
+        ...
         ]
-      }
-    },
+    }
+    ```
+    </TabItem>
+    <TabItem value="geoSystems" label="GeoJSON" default>
+    ```json
     {
-      "type": "Feature",
-      "id": "kk8p16lbvqvdo",
-      "properties": {
-        "uid": "urn:osh:system:uas:predator001",
-        "featureType": "http://www.w3.org/ns/ssn/System",
-        "name": "Predator UAS (data loader)",
-        "validTime": [
-          "2022-06-08T21:00:00Z",
-          "now"
+        "items": [
+        {
+            "type": "Feature",
+            "id": "ki7dgdg90mqt6",
+            "geometry": null,
+            "properties": {
+                "uid": "urn:osh:sensor:uas:predator001-RT",
+                "featureType": "http://www.w3.org/ns/ssn/System",
+                "name": "Predator UAV (MISB simulated RT)",
+                "validTime": [
+                "2023-05-14T15:22:00Z",
+                "now"
+                ]
+            }
+        },
+        ...
         ]
-      }
-    },
-  ]
-}
-```
+    }
+    ```
+    </TabItem>
+</Tabs>
+
 
 As you can see, each system has an `id` property. This identifier is used to access *System* descriptions, along with associated *DataStreams* and *ControlStreams*.
 
 | Request | Description |
 | ------- | ----------- |
 | `/api/systems/{systemId}` | *System* Description
+| `/api/systems/{systemId}/subsystems` | *System*'s *Subsystems*
 | `/api/systems/{systemId}/datastreams` | *System*'s associated *DataStreams*
 | `/api/systems/{systemId}/controlstreams` | *System*'s associated *ControlStreams*
+| `/api/systems/{systemId}/samplingFeatures` | *System*'s associated *SamplingFeatures*
 
-```http
-/api/systems/{systemId}
-```
 
-Using the first system as an example:
+Using the first *System* as an example, we'll retrieve the *System* description.
 
-[`https://api.georobotix.io/ogc/t18/api/systems/b2rju765gua3c`](https://api.georobotix.io/ogc/t18/api/systems/b2rju765gua3c)
+[`https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6`](https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6)
 
 Response:
 
-```json
-{
-  "type": "Feature",
-  "id": "b2rju765gua3c",
-  "properties": {
-    "uid": "urn:osh:sensor:uas:predator001-RT",
-    "featureType": "http://www.w3.org/ns/ssn/System",
-    "name": "Predator UAV (MISB simulated RT)",
-    "validTime": [
-      "2023-05-14T15:22:00Z",
-      "now"
-    ]
-  },
-  "links": [
+<Tabs>
+    <TabItem value="smlDesc" label="SensorML JSON">
+    ```json
     {
-      "rel": "details",
-      "title": "Detailed system specsheet in SensorML format",
-      "href": "https://api.georobotix.io/ogc/t18/api/systems/b2rju765gua3c/details"
-    },
-    {
-      "rel": "members",
-      "title": "List of subsystems",
-      "href": "https://api.georobotix.io/ogc/t18/api/systems/b2rju765gua3c/members"
-    },
-    {
-      "rel": "datastreams",
-      "title": "List of system datastreams",
-      "href": "https://api.georobotix.io/ogc/t18/api/systems/b2rju765gua3c/datastreams"
-    },
-    {
-      "rel": "fois",
-      "title": "List of system sampling features",
-      "href": "https://api.georobotix.io/ogc/t18/api/systems/b2rju765gua3c/featuresOfInterest"
+        "type": "PhysicalSystem",
+        "id": "ki7dgdg90mqt6",
+        "uniqueId": "urn:osh:sensor:uas:predator001-RT",
+        "definition": "http://www.w3.org/ns/ssn/System",
+        "label": "Predator UAV (MISB simulated RT)",
+        "validTime": [
+            "2023-05-14T15:22:00Z",
+            "now"
+        ]
     }
-  ]
-}
-```
+    ```
+    </TabItem>
+    <TabItem value="geoDesc" label="GeoJSON" default>
+    ```json
+    {
+        "type": "Feature",
+        "id": "ki7dgdg90mqt6",
+        "geometry": null,
+        "properties": {
+            "uid": "urn:osh:sensor:uas:predator001-RT",
+            "featureType": "http://www.w3.org/ns/ssn/System",
+            "name": "Predator UAV (MISB simulated RT)",
+            "validTime": [
+            "2023-05-14T15:22:00Z",
+            "now"
+            ]
+        },
+        "links": [
+            {
+            "rel": "canonical",
+            "href": "https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6",
+            "type": "application/json"
+            },
+            {
+            "rel": "alternate",
+            "title": "Detailed description of system in SensorML format",
+            "href": "https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6?f=sml",
+            "type": "application/sml+json"
+            },
+            {
+            "rel": "alternate",
+            "title": "Detailed description of system in HTML format",
+            "href": "https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6?f=html",
+            "type": "text/html"
+            },
+            {
+            "rel": "subsystems",
+            "title": "List of subsystems",
+            "href": "https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6/subsystems?f=json",
+            "type": "application/json"
+            },
+            {
+            "rel": "datastreams",
+            "title": "List of system datastreams",
+            "href": "https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6/datastreams?f=json",
+            "type": "application/json"
+            },
+            {
+            "rel": "controlstreams",
+            "title": "List of system controlstreams",
+            "href": "https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6/controls?f=json",
+            "type": "application/json"
+            },
+            {
+            "rel": "samplingFeatures",
+            "title": "List of system sampling features",
+            "href": "https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6/samplingFeatures?f=json",
+            "type": "application/json"
+            }
+        ]
+    }
+    ```
+    </TabItem>
+</Tabs>
 
 :::tip
-This response also yields us links to other related *System* resources such as *Subsystems*, *DataStreams*, and *SamplingFeatures*.
+The response in GeoJSON also yields us links to other related *System* resources such as *Subsystems*, *DataStreams*, and *SamplingFeatures*.
 :::
 
 ### DataStreams
