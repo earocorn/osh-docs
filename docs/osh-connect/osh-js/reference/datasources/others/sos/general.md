@@ -11,10 +11,11 @@ There are properties to control the playback stream, server version, protocols, 
 
 **osh-js** comes with built-in datasource types:
 
-- [SosGetResultJson](swejson.md)
-- [Video](video.md)
-- [VideoWithRoll](videoroll.md)
-- [SosGetFois](sosgetfois.md)
+
+<!-- - [SosGetResultJson](/docs/osh-connect/osh-js/reference/datasources/others/sos/sosGetResultJson.md)
+- [Video](/docs/osh-connect/osh-js/reference/datasources/others/sos/sosGetResultVideo.md)
+- [VideoWithRoll](/docs/osh-connect/osh-js/reference/datasources/others/sos/sosGetResultVideoRoll.md)
+- [SosGetFois](/docs/osh-connect/osh-js/reference/datasources/others/sos/) -->
 
 ## Data parsing
 
@@ -76,7 +77,7 @@ to the internal object of the Toolkit.
 Each message contains a set of values, which in turn contains a timeStamp and an associated data.
 
 The choice to pass an array rather than a single object is due to the fact that the *batch* property of the DataSource can be used.
-This property allows to receive a group of data rather than a single data item([see batch section](./batch.md)).
+This property allows to receive a group of data rather than a single data item([see batch section](/docs/osh-connect//osh-js/reference/datasources/others/sos/batch-replay-speed.md)).
 For example, if you want to display a Graph,
 it is often preferable to initialize it with all the data at once (for archive data) rather than updating it data by data.
 
@@ -122,7 +123,7 @@ http://some-url?..&customUrlParams=value1
 
 The **batchSize** property allows to receive a group of data rather than a single data item.
 For example, if you want to display a Graph, it is often preferable to initialize it with all the data at once
-(for archive data) rather than updating it data by data. [see batch section](./batch_replayspeed.md)
+(for archive data) rather than updating it data by data. [see batch section](/docs/osh-connect//osh-js/reference/datasources/others/sos/batch-replay-speed.md)).
 
 The **reconnectTimeout** allows you to set the time before the connector tries to reconnect after being disconnected.
 
@@ -134,14 +135,14 @@ associated with a DataSynchronizer.
 
 *batchsize* is useful if you want to process data in batches and display them all at once rather than displaying them one by one. For example, in the case of static data that one would like to display in a block.
 
-To create a new datasource type, see the [developer docs](../../advanced/developers/datasources.md).
+To create a new datasource type, see the [developer docs](/docs/osh-connect/).
 
 ## TimeSeriesDataSource
 
 This datasource allows to request the server with the notion of time. The temporal synchronization of the data is then possible for all DataSources inheriting it.
 
-After the parsing, the data can be synchronized using [the DataSynchronizer](../../timesync/general.md) or/and displayed
-into a [View](../../views/index).
+After the parsing, the data can be synchronized using **the DataSynchronizer** or/and displayed
+into a **View**.
 
 
 ### Data type *data*
@@ -182,7 +183,7 @@ const timeSeriesDataSource = {
     replaySpeed: 1.5
 };
 ```
-The **timeOut** and **bufferingTime** are useful only for [data synchronization](../../timesync/general.md).
+The **timeOut** and **bufferingTime** are useful only for data synchronization.
 
 The **replaySpeed** property allows to modify the same frequency of reception of archive data compared to their
 original frequency.
