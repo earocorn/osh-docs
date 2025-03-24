@@ -47,7 +47,7 @@ For the time being, two kind of message are supported: `message` and `data`.
 
 Some properties are common to all DataSources. These are the DataSourceId, and the message type.
 
-```json
+```js
 {
   type: "message",
   dataSourceId: "123-456-4569-4545"
@@ -61,7 +61,7 @@ disconnects, then the dataSources can alert the view that the status of the conn
 
 The structure of such a message is:
 
-```json
+```js
 {
   type: "message",
   dataSourceId: "123-456-4569-4545",
@@ -82,7 +82,7 @@ it is often preferable to initialize it with all the data at once (for archive d
 
 The structure of such a message is:
 
-```json
+```js
 {
     type: "data",
     dataSourceId: "123-456-4569-4545",
@@ -99,8 +99,6 @@ The structure of such a message is:
 ### Global configuration
 
 There are global properties common to every datasource owned by the DataSource Object.
-
-<DocumentationLoad path="/guide/api/DataSource.html"/>
 
 The **customUrlParams** are properties that are automatically appended to the URL as they are provided.
 
@@ -152,7 +150,7 @@ The structure is similar to a DataSource but with a `timestamp' field allowing t
 
 The structure of such a message is:
 
-```json
+```js
 {
     type: "data",
     dataSourceId: "123-456-4569-4545",
@@ -164,18 +162,15 @@ The structure of such a message is:
       }
    }]
 }
-
 ```
 
 ### Global configuration
 
 There are global properties common to every datasource owned by the TimeSeriesDataSource Object.
 
-<DocumentationLoad path="/guide/api/TimeSeriesDataSource.html"/>
-
 Example:
 
-```jsx
+```js
 
 const timeSeriesDataSource = {
     ...,

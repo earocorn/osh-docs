@@ -8,19 +8,19 @@ sidebar_position: 2
 
 ### Requirements
 - Git
-- IntelliJ (Reccomended IDE)
+- IntelliJ (recommended IDE)
 - Java 17 SDK
-- Gradle 7.1.1+
+- Gradle 7.3+
 - osh-node-dev-template 
-- osh-addons & osh-core Submodules
+- osh-addons & osh-core submodules
 
 
 ## Getting Started
-- After cloning the osh-node-dev-template repository and including the submodules osh-core and osh-addons, open the project in your preferred IDE. We reccomend IntelliJ.
+- After cloning the osh-node-dev-template repository and including the submodules osh-core and osh-addons, open the project in your preferred IDE. We recommend IntelliJ.
 
 
-### Updating the Version Name
-<!-- ![updating package name](../../assets/osh/sensor-dev/package-name.png) -->
+<!-- ### Updating the Version Name -->
+<!-- ![updating package name](../../assets/osh/sensor-dev/package-name.png)
 
 1. Open project-wide `build.gradle`
 2. Change the `version` field
@@ -29,24 +29,24 @@ sidebar_position: 2
 ### Updating the Distribution Name
 <!-- ![updating package name](../../assets/osh/sensor-dev/package-name.png) -->
 
-1. Open project wide build.gradle
+<!-- 1. Open project wide build.gradle
 2. Change `distributionBaseName`
 3. Refresh Gradle to apply changes
 4. Open project wide `settings.gradle`
 5. Change `rootProject.name`
 6. Refresh Gradle to apply changes
 
-### Testing Version and Distribution Changes
+### Testing Version and Distribution Changes -->
 <!-- ![updating package name](../../assets/osh/sensor-dev/package-name.png) -->
 
-1. Execute a `build task`
+<!-- 1. Execute a `build task`
     - Click the `gradle` on the right side of the screen
     - Under osh-node-dev-template(root), right click the `Tasks> Build> build`
     - Click the 'Edit Run Configuration'
     - in the 'Run' input box, type in 'build -x test -x osgi' and click 'OK'
     - Then Click the Green Run Button on the top toolbar to run the new Build
 2. Check the console 
-3. Target - if build succeeds, it will create 'build/distributions/ [name]-[version].zip'
+3. Target - if build succeeds, it will create 'build/distributions/ [name]-[version].zip' --> 
 
 
 ## Creating Driver Framework 
@@ -54,7 +54,7 @@ sidebar_position: 2
 ### Copying the Driver Template
 ![updating package name](../../assets/osh/sensor-dev/template1.png)
 
-1. Copy the Driver Template by right clicking the 'senosrhub-driver-template' module and click 'Copy'
+1. Copy the Driver Template by right clicking the 'sensorhub-driver-template' module and click 'Copy'
 2. Paste Template back into the 'Sensors' directory
 3. Rename Module by removing 'template' and entering a relevant name
 4. Below is a *successfully* created Module,

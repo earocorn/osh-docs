@@ -1,8 +1,8 @@
 {
   "label": "Integration",
-  "position": 2,
+  "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Integrating with ConnectedSystems-JS"
+    "description": "Integrating with OSHConnect-JS"
   }
 }

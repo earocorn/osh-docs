@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Integration
 
-ConnectedSystems-JS, formerly known as osh-js, can be integrated with plain JavaScript or with different module loaders. Below are a few examples of how to load ConnectedSystems-JS in different environments.
+OSHConnect-JS, formerly known as osh-js, can be integrated with plain JavaScript or with different module loaders. Below are a few examples of how to load OSHConnect-JS in different environments.
 
 
 ### Plain JavaScript
@@ -25,7 +25,7 @@ const dataSource = new DataSource({...});
 
 ### Bundlers (Webpack, Rollup, etc)
 
-```js
+```jsx
 import { DataSource } from 'osh-js.js';
 
 const dataSource = new DataSource({...});

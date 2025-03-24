@@ -30,21 +30,20 @@ The DataSource is used to define the properties allowing connecting to a OSH ser
 
 ```js
 // create the datasource using Connected Systems API
-let gpsDataSource = new ConnectedSystemsApi("android-gps", {
+let gpsDataSource = new ConSysApi("android-gps", {
     endpointUrl: 'api.georobotix.io/ogc/t18/api',
     resource: '/datastreams/8ni90dbu4uf0g/observations',
     tls: true,
     startTime: '2012-06-29T14:22:00.099333251Z',
     endTime: '2012-06-29T14:37:44.033333251Z',
     mode: Mode.REPLAY,
-    responseFormat: 'application/swe+binary',
     prefetchBatchSize: 250
 })
 
 ```
 
 ### Create the Layer Instance
-The Layer is used to style dynamically your data before rendering.
+The Layer is used to dynamically style your data before rendering.
 
 ```js
 // style it with a moving point marker

@@ -238,7 +238,7 @@ Response:
 </Tabs>
 
 :::tip
-The response in GeoJSON also yields us links to other related *System* resources such as *Subsystems*, *DataStreams*, and *SamplingFeatures*.
+The response in GeoJSON also yields us links to other related *System* resources such as *Subsystems*, *DataStreams*, *ControlStreams*, and *SamplingFeatures*.
 :::
 
 ### DataStreams
@@ -255,6 +255,6 @@ and
 
 We can use our previous *System* as an example of how to query and select a particular *DataStream*.
 
-[`https://api.georobotix.io/ogc/t18/api/systems/b2rju765gua3c/datastreams`](https://api.georobotix.io/ogc/t18/api/systems/b2rju765gua3c/datastreams)
+[`https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6/datastreams`](https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6/datastreams)
 
 Response:

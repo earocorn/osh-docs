@@ -18,5 +18,5 @@ Generic instructions will be given for both the Python and Java libraries. OSH-J
 ![OSHConnect Diagram](../assets/osh/osh-dev.png)
 
 :::note
-If you are interested in the StarUML diagram for OSHConnect, you can find them [here](https://drive.google.com/file/d/1FVrnYiuAR8ykqfOUa1NuoMyZ1abXzMPw/view)
+If you are interested in the StarUML diagrams for OSHConnect, you can find them [here](https://drive.google.com/file/d/1FVrnYiuAR8ykqfOUa1NuoMyZ1abXzMPw/view)
 :::
