@@ -77,7 +77,7 @@ to the internal object of the Toolkit.
 Each message contains a set of values, which in turn contains a timeStamp and an associated data.
 
 The choice to pass an array rather than a single object is due to the fact that the *batch* property of the DataSource can be used.
-This property allows to receive a group of data rather than a single data item([see batch section](/docs/osh-connect//osh-js/reference/datasources/others/sos/batch-replay-speed.md)).
+This property allows to receive a group of data rather than a single data item([see batch section](/docs/osh-connect/osh-js/reference/datasources/others/sos/batch-replay-speed.md)).
 For example, if you want to display a Graph,
 it is often preferable to initialize it with all the data at once (for archive data) rather than updating it data by data.
 
@@ -123,7 +123,7 @@ http://some-url?..&customUrlParams=value1
 
 The **batchSize** property allows to receive a group of data rather than a single data item.
 For example, if you want to display a Graph, it is often preferable to initialize it with all the data at once
-(for archive data) rather than updating it data by data. [see batch section](/docs/osh-connect//osh-js/reference/datasources/others/sos/batch-replay-speed.md)).
+(for archive data) rather than updating it data by data. [see batch section](/docs/osh-connect/osh-js/reference/datasources/others/sos/batch-replay-speed.md)).
 
 The **reconnectTimeout** allows you to set the time before the connector tries to reconnect after being disconnected.
 
@@ -134,8 +134,8 @@ Moreover, it is possible de get more control on the reconnection process and/or 
 associated with a DataSynchronizer.
 
 *batchsize* is useful if you want to process data in batches and display them all at once rather than displaying them one by one. For example, in the case of static data that one would like to display in a block.
-
-To create a new datasource type, see the [developer docs](/docs/osh-connect/).
+<!-- 
+To create a new datasource type, see the [developer docs](/docs/osh-connect/). -->
 
 ## TimeSeriesDataSource
 
