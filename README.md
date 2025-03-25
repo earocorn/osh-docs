@@ -1,41 +1,46 @@
-# Website
+# OpenSensorHub Docs 
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Documentaiton site for all things OpenSensorHub!
 
-### Installation
+---
 
+## Installation
+Clone the repository and install dependecies:
+
+```bash
+git clone https://github.com/kalynstricklin/osh-docs
+cd osh-docs
+npm install
 ```
-$ yarn
-```
+Alternatively you can use `bun` or `yarn` if preferred.
 
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
+## Development
+To start the local development server:
+```bash
+npm start
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
+Other options:
+```bash
+yarn start
+bun start
 ```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
+ 
+## Building
+To generate a production build: 
+```bash
+npm build
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Other options:
+```bash
+yarn build
+bun build
+```
+
+
+
+
+
+
+
