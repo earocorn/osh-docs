@@ -4,7 +4,7 @@ sidebar_position: 5
 ---
 
 
-<div style={{ fontWeight:"bold" }} >Training Module 04</div>
+<div style={{ color:"#039dfc", fontWeight:"bold" }} >Training Module 04</div>
 
 # Build an Isolated Driver as a Java Class
 ### Objective
@@ -33,13 +33,13 @@ Feel free to view more documentation, but for our project, we will require the f
 Luckily, Pi4J release builds are deployed to <a href="https://mvnrepository.com/">Maven Central</a>, making it simple to add these libraries to our project. When adding dependencies in a Gradle project, you're declaring external libraries or files (like JARs or other projects) that your project needs to function, which Gradle then manages by fetching, compiling, and packaging them into your build output. 
 
 To add a dependency in gradle, the following context can be used:
-```
+```gradle
 implementation group:<project> name:<artifact> version:<version>
 ```
 
 Navigate to your <b>build.gradle</b> file in the Java Project you created and add the following under the <em>dependencies object</em>:
 
-```
+```gradle
 implementation group: 'com.pi4j', name: 'pi4j-core', version: '2.8.0'
 implementation group: 'com.pi4j', name: 'pi4j-plugin-gpiod', version: '2.8.0'
 ```
@@ -47,7 +47,7 @@ implementation group: 'com.pi4j', name: 'pi4j-plugin-gpiod', version: '2.8.0'
 ### Configure Java-based Application.
 As we intend to use this build to create a small, stand-alone application, let's add code to your <b>build.gradle</b> in the appropriate sections:
 
-```
+```gradle
     plugins {
         id 'application'
     }
@@ -65,7 +65,7 @@ This plugin simplifies building and running Java applications by handling tasks 
 
 The application plugin also adds <em>task</em> such as ```run```, ```startScripts```, and ```installDist``` to your project. Update the ```task``` property with the following code:
 
-```
+```gradle
 tasks.withType(Jar).configureEach {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
@@ -75,7 +75,7 @@ This code snippet ensures that, when creating JAR files, if there are duplicate 
 
 Finally, we will add the following code to our <b>build.gradle</b> to ensure that Java 17 is used, as this is the most stable version that OSH uses.
 
-```
+```gradle
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17) // Change to your desired version
@@ -84,7 +84,7 @@ java {
 ```
 
 At this point, the entirety of your gradle file should look like this:
-```
+```gradle
 plugins {
     id 'java'
     id 'application'
@@ -128,7 +128,7 @@ Now that we have configured out build settings, let's create a Java Class to rep
 
 In the following code, we will import our Pi4J dependencies and create a constructor (requiring a single argument) for OUR KY032_Sensor Class. When this class is instantiated, a <a href="https://www.pi4j.com/documentation/create-context/">Pi4J Context</a> is created. This context is an immutable runtime object that holds the configured state and manages the lifecycle of a Pi4J instance. We can edit the configuration of this <em>context</em> to create an input configuration that <em>reads</em> the Raspberry Pi's GPIO:
 
-```
+```java
 package org.example;
 
 // PI4J DEPENDENCIES
@@ -167,7 +167,7 @@ public class KY032_Sensor {
 
 Before we are complete, let's add the following methods to our KY032_Sensor Class. One method will be used to read the sensor when we call it, while the other is a simple clean up method that ends the Pi4J instance.
 
-```
+```java
     // READ SENSOR VALUE
     public int readSensor() {
         return input.isHigh() ? 0 : 1;
@@ -183,18 +183,18 @@ Before we are complete, let's add the following methods to our KY032_Sensor Clas
 Congratulations! The hard part is over. Now that you have created a KY032 Sensor class, this can be isolated and called upon anywhere. Let's call it in our <b>Main</b> Class for example.
 
 Navigate to your Main Class in the directory and revise your code to read our KY032 sensor:
-<div style={{ width:"100%", backgroundColor:"#ccedd5", padding:"5px", borderRadius:"5px", color:"#40694b", marginBottom:"10px" }} >
-   <div style={{ fontWeight:"bold" }}>Note:</div>
-   <div>While the sensor is connected to the physical pin #16 of our Raspberry Pi (reference previous module), this is not the number passed as an argument to our method. Pi4J uses <a href="https://www.pi4j.com/documentation/pin-numbering/" >BCM numbering</a>, and not Board numbering.</div>
-</div>
+:::tip
+While the sensor is connected to the physical pin #16 of our Raspberry Pi (reference previous module), this is not the number passed as an argument to our method. Pi4J uses <a href="https://www.pi4j.com/documentation/pin-numbering/" >BCM numbering</a>, and not Board numbering.
+:::
 
-```
+```java
 package org.example;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Press Ctrl+C to exit.");
+
         // CREATE SENSOR
         // Configure GPIO pin (physical pin 16 = BCM pin 23)
         KY032_Sensor sensor = new KY032_Sensor(23);

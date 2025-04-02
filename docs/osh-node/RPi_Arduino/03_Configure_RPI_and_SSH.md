@@ -18,10 +18,9 @@ sidebar_position: 4
 
 ### Objective
 In this module, we will connect our operating Raspberry Pi to our Wifi network. Afterwards, we will connect remotely to the Raspberry Pi from our personal computer using <a href="https://en.wikipedia.org/wiki/Secure_Shell">Secure Shell Protocol (SSH)</a>. 
-<div style={{ width:"100%", backgroundColor:"#ccedd5", padding:"5px", borderRadius:"5px", color:"#40694b", marginLeft:"10px" }}>
-   <div style={{ fontWeight:"bold" }}>Note:</div>
-   <div>If this is the first time the Raspberry Pi you intend to use has been operated on, or you prefer to start from scratch, set up your Raspberry Pi using the <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html">Getting Started with your Raspberry Pi</a> tutorial.</div>
-</div>
+:::tip
+If this is the first time the Raspberry Pi you intend to use has been operated on, or you prefer to start from scratch, set up your Raspberry Pi using the <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html">Getting Started with your Raspberry Pi</a> tutorial.
+:::
 
 ## Getting Started
 <div style={{ fontStyle:"italic",  fontSize:"10px", marginBottom:"10px" }} >Reference: <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html#power-supply">Raspberry Pi: Getting Started</a></div>
@@ -70,13 +69,13 @@ Raspberry Pi OS supports multicast DNS as part of the Avahi service.
 
 If your device supports mDNS, you can reach your Raspberry Pi in the terminal of your personal computer by using its hostname and the <em>.local</em> suffix (as longa as both your computer and the Raspberry Pi are connected to the same network). The default hostname on a fresh Raspberry Pi OS install is raspberrypi, so by default any Raspberry Pi running Raspberry Pi OS responds to:
 
-```
+```bash
 ping raspberrypi.local
 ```
 
 If the Raspberry Pi is reachable, ping will show its IP address:
 
-```
+```bash
 PING raspberrypi.local (192.168.1.131): 56 data bytes
 64 bytes from 192.168.1.131: icmp_seq=0 ttl=255 time=2.618 ms
 ```
@@ -84,14 +83,13 @@ Copy this IP Address down
 
 ## Remote Connect using SSH
 You can access the terminal of a Raspberry Pi remotely from another computer on the same network using the <a href="https://en.wikipedia.org/wiki/Secure_Shell" >Secure Shell (SSH) protocol</a>.
-<div style={{ width:"100%", backgroundColor:"#ccedd5", padding:"5px", borderRadius:"5px", color:"#40694b", marginLeft:"10px", marginBottom:"10px" }} >
-   <div style={{ fontWeight:"bold" }}>Note:</div>
-   <div>This can only be done if SSH is enabled on the Raspberry Pi OS. If this is the first time the R-Pi is being used, you will need to enable it. Following these <a href="https://www.raspberrypi.com/documentation/computers/remote-access.html#enable-theSshServer">Enable the SSH server</a> instructions.</div>
-</div>
+:::tip 
+This can only be done if SSH is enabled on the Raspberry Pi OS. If this is the first time the R-Pi is being used, you will need to enable it. Following these <a href="https://www.raspberrypi.com/documentation/computers/remote-access.html#enable-theSshServer">Enable the SSH server</a> instructions.
+:::
 
-To connect to an SSH server, open a terminal window on your computer and enter the following command, replacing the <em>< ip address ></em> placeholder with the IP address of the Raspberry Pi you’re trying to connect to and \&ltusername>\ with your username. If no username was setup, the devaul username is <em>pi</em> and the default password is <em>raspberry</em>
+To connect to an SSH server, open a terminal window on your computer and enter the following command, replacing the <em>\<ip address></em> placeholder with the IP address of the Raspberry Pi you’re trying to connect to and \<username> with your username. If no username was setup, the devaul username is <em>pi</em> and the default password is <em>raspberry</em>
 
-```
+```bash
 ssh <username>@<ip address>
 
 @Example:

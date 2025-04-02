@@ -35,10 +35,9 @@ The [KY-032 Infrared Obstacle Avoidance Sensor](https://arduinomodules.info/ky-0
 - The KY-032 requires an operating voltage of 3.3V - 5V
 - A GPIO pin of an R-Pi designated as <em>input</em> have a max allowable voltage of 3.3V (lower than our sensor's current output of 5V).
 
-<div style={{ width:"90%", backgroundColor:"#ccedd5", padding:"5px", borderRadius:"5px", color:"#40694b", marginLeft:"40px", marginBottom:"10px" }} >
-   <div style={{ fontWeight:"bold" }}>Note:</div>
-   <div>For more information about the GPIO's on a Raspberry Pi, check out [this article](https://www.futurelearn.com/info/courses/robotics-with-raspberry-pi/0/steps/75878).</div>
-</div>
+:::tip
+For more information about the GPIO's on a Raspberry Pi, check out [this article](https://www.futurelearn.com/info/courses/robotics-with-raspberry-pi/0/steps/75878).
+:::
 
 For this exercise, we will be utilizing the <b>Raspberry Pi 3 Model B</b>. The R-Pi's board contains a single 40-pin expansion header labeled as 'J8' providing access to 28 GPIO pins.
 
