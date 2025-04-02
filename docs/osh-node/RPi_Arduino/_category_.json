@@ -3,6 +3,6 @@
   "position": 6,
   "link": {
     "type": "generated-index",
-    "description": "Raspberry PI/Arduino Tutorial"
+    "description": "The following modules will walk you through each step of configuring a Raspberry Pi and connecting a simple Arduino sensor, to implementing an OpenSensorHub (OSH) node."
   }
 }

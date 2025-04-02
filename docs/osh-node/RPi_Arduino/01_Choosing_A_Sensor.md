@@ -1,6 +1,6 @@
 ---
 title: "Choosing A Sensor"
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 <div style={{ color: "#039dfc", fontWeight: "bold" }}>Training Module 01</div>

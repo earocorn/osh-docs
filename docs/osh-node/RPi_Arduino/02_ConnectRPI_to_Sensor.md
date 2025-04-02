@@ -1,12 +1,12 @@
 ---
 title: Configure Raspberry Pi to your Sensor
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 <div style={{ color: "#039dfc", fontWeight: "bold" }}>Training Module 02</div>
 # Configure Raspberry Pi to your Sensor
 ## Prerequisites
-- Completed <b>Training Module 01: Choosing a Sensor</b>
+- Completed [Training Module 01: Choosing a Sensor](01_Choosing_A_Sensor.md)
 - KY-032 Sensor
 - Raspberry Pi Model 3B
 - Raspberry Pi Breadboard

@@ -97,3 +97,14 @@
     color: #fff;
     text-decoration: none;
   }
+
+  .imgContainerVert img {
+    max-width: 700px;
+    display:block;
+    margin: auto;
+  }
+  .imgContainerHoriz img {
+    max-height: 200px;
+    display:block;
+    margin: auto;
+  }

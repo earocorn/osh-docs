@@ -1,6 +1,6 @@
 ---
 title: Configure Raspberry Pi and Remote Connect Using SSH
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 

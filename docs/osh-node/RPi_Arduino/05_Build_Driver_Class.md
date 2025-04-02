@@ -2,18 +2,20 @@
 title: Build Isolated Driver as a Java Class
 sidebar_position: 5
 ---
-
-
-<div style={{ color:"#039dfc", fontWeight:"bold" }} >Training Module 04</div>
-
+<div style={{ color:"#039dfc", fontWeight:"bold" }} >Training Module 05</div>
 # Build an Isolated Driver as a Java Class
+### Requirements
+- Completed [Training Module 04: Setup Development Environment](04_Setup_Environment.md)
+
 ### Objective
 In this module, we will build an isolated sensor driver in Java utilizing the assistance of the <a href="https://www.pi4j.com/#brief-history">Pi4J</a> Library to communicate with our KY-032 Sensor. 
 
 ## Create a Java Project with a Gradle Build System
+:::note
 There are many IDE's, but for this module, we will be using <a href="https://www.jetbrains.com/idea/download/?section=mac#community-edition"> IntelliJ IDEA Community Edition</a>. To follow along, please download using the link provided. 
+:::
 
-Once downloaded, open up <b>IntelliJ</b> and select <b>New Project</b>:
+Open up <b>IntelliJ</b> and select <b>New Project</b>:
 ![Welcome To IntelliJ Dialog Box](../../../static/img/IntelliJWelcomeDialog.jpeg)
 
 
@@ -73,6 +75,18 @@ tasks.withType(Jar).configureEach {
 ```
 This code snippet ensures that, when creating JAR files, if there are duplicate files, they will be excluded, and only one copy will be included in the JAR file. It’s useful to prevent errors or bloated JARs caused by duplicated resources.
 
+Next, add the following line of code to specifiy which class contains the <em>main</em> method when the build is later initiated by gradle. This defintes which method should be executed when we run JAR with ```java -jar filename.jar```
+
+```
+jar {
+    manifest {
+        attributes(
+                "Main-Class": "org.example.Main"
+        )
+    }
+}
+```
+
 Finally, we will add the following code to our <b>build.gradle</b> to ensure that Java 17 is used, as this is the most stable version that OSH uses.
 
 ```gradle
@@ -106,6 +120,14 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes(
+                "Main-Class": "org.example.Main"
+        )
+    }
 }
 
 tasks.withType(Jar).configureEach {
@@ -182,9 +204,9 @@ Before we are complete, let's add the following methods to our KY032_Sensor Clas
 
 Congratulations! The hard part is over. Now that you have created a KY032 Sensor class, this can be isolated and called upon anywhere. Let's call it in our <b>Main</b> Class for example.
 
-Navigate to your Main Class in the directory and revise your code to read our KY032 sensor:
+Navigate to your <b>Main</b> Class in the directory and revise your code to create an instance of the KY032 Sensor and then read. The snippit below uses a ```while``` loop to take a sensor reading every <b>1</b> second using the ```readSensor()``` method we created previously.
 :::tip
-While the sensor is connected to the physical pin #16 of our Raspberry Pi (reference previous module), this is not the number passed as an argument to our method. Pi4J uses <a href="https://www.pi4j.com/documentation/pin-numbering/" >BCM numbering</a>, and not Board numbering.
+Even though we connected the output of our sensor the the pin #16 on the Raspberry Pi's GPIO board, this is not the number that gets used. While the physical pin #16, or GPIO pin #4 ([Reference Module 02](02_ConnectRPI_to_Sensor.md)), this is not the number passed used as the argument in our method. Pi4J uses <a href="https://www.pi4j.com/documentation/pin-numbering/" >BCM numbering</a>, and not Board numbering. <b>The BCM # for Board Pin #16 is 23</b>.
 :::
 
 ```java
