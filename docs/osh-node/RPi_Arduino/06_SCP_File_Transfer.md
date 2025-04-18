@@ -13,7 +13,7 @@ sidebar_position: 6
 - Completed [Module 05: Build Isolated Driver as a Java Class](05_Build_Driver_Class.md)
 
 ### Objective
-The purpose of this module is to use the Isolated Java Application we created in the [last module](05_Build_Driver_Class.md) to read data from the KY-032 that we previously connected to our Raspberry Pi. To do this, we wll utilize the [Secure Copy Protocol](https://en.wikipedia.org/wiki/Secure_copy_protocol). SCP relies on the SSH protocol that we set up in [Module 03](03_Configure_RPI_and_SSH.md). Let's get started!
+The purpose of this module is to use the Isolated Java Application we created in the [last module](05_Build_Driver_Class.md) to read and display data from the KY-032 Sensor that we previously connected to our Raspberry Pi. To do this, we wll utilize the [Secure Copy Protocol](https://en.wikipedia.org/wiki/Secure_copy_protocol). SCP relies on the SSH protocol that we set up in [Module 03](03_Configure_RPI_and_SSH.md). Let's get started!
 
 ## Build Application
 In the previous module, we added the <b>appliation</b> pluggin to our ```build.gradle``` file. The pluggin allows you to run gradle ```installDist``` to create an image of the application in build-->install-->projectName. 
@@ -82,7 +82,7 @@ java -cp "lib/*" org.example.Main
 
 The command ```java -cp "lib/*" org.example.Main``` uses the Java runtime command to include all <em>classpath (-cp)</em> files in the <b>lib</b> directory to run the ```main``` method in the ```org.example.Main.Class```.
 
-In your terminal, every second, you should begin to see a <b>Sensor Value</b> of either 0 or 1 (depending on whether or not KY-032 Sensor detects anything in front of it or not).
+In your terminal, you should begin to see a <b>Sensor Boolean Value</b> of either <em>true</em> or <em>false</em> every time the state of sensor's signal changes. If a signal is detected in front of the sensor, the value will be <em>true</em>.
 
 
 ## Conclusion
