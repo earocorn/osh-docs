@@ -56,7 +56,7 @@ From the previous module, we know that our sensor contains 4 Pins (GND, +, S, an
 ![Wire Configuration from Sensor to Breadboard](../../../static/img/KY032_to_BB.png)
 
 ### Step 2: Configure Resistor's
-In this step, we will configure the resistors to reduce the voltage from 5V to 3V.
+In this step, we will configure the resistors to reduce the voltage from 5V to 3V, before returning to the Raspberry Pi.
 ![Adding Resistors](../../../static/img/Resistors.png)
 
 ### Step 3: Connect Raspberry Pi to Breadboard

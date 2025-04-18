@@ -34,7 +34,7 @@ For your convenience, please reference the [Sensor Guide](https://docs.google.co
     />
 </div>
 
-Before developing a driver for a sensor, it's always best to obtain as much information as you can about the sensor. Let's start by accessing the [KY-032 Specifications](https://arduinomodules.info/ky-032-infrared-obstacle-avoidance-sensor-module/).
+Before developing a driver for a sensor, it's always best to obtain as much information as you can about the sensor. Let's start by accessing the [KY-032 Specifications](https://arduinomodules.info/ky-032-infrared-obstacle-avoidance-sensor-module/). It's always a good start to research the sensor(s) you are building drivers for.
 
 Upon reviewing the specifications, some important takeaways are:
 
