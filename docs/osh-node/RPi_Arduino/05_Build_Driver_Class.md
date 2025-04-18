@@ -65,7 +65,7 @@ As we intend to use this build to create a small, stand-alone application, let's
 
 This plugin simplifies building and running Java applications by handling tasks like packaging, creating executable JARs, and generating distribution archives, making it easier to start and package applications. The ```mainClass``` property within the application object specifies the fully qualified name of the main class that the application will start with. 
 
-The application plugin also adds <em>task</em> such as ```run```, ```startScripts```, and ```installDist``` to your project. Update the ```task``` property with the following code:
+The application plugin also adds <em>tasks</em> such as ```run```, ```startScripts```, and ```installDist``` to your project. Update the ```task``` property with the following code:
 
 ```gradle
 tasks.withType(Jar).configureEach {
@@ -145,10 +145,10 @@ java {
 
 
 ## Create a KY032 Java Class
-Now that we have configured out build settings, let's create a Java Class to represent our KY-032 Sensor. In your project, navigate to the source code and create a <em>New Java Class</em> and name it <b>KY032_Sensor</b>:
+Now that we have configured our build settings, let's create a Java Class to represent our KY-032 Sensor. In your project, navigate to the source code and create a <em>New Java Class</em> and name it <b>KY032_Sensor</b>:
 ![Create Java Class](../../../static/img/CreateJavaClass.png)
 
-In the following code, we will import our Pi4J dependencies and create a constructor (requiring a single argument) for OUR KY032_Sensor Class. When this class is instantiated, a <a href="https://www.pi4j.com/documentation/create-context/">Pi4J Context</a> is created. This context is an immutable runtime object that holds the configured state and manages the lifecycle of a Pi4J instance. We can edit the configuration of this <em>context</em> to create an input configuration that <em>reads</em> the Raspberry Pi's GPIO:
+In the following code, we will import our Pi4J dependencies and create a constructor (requiring a single argument) for OUR KY032_Sensor Class. When this class is instantiated, a <a href="https://www.pi4j.com/documentation/create-context/">Pi4J Context</a> is created. This context is an immutable runtime object that holds the configured state and manages the lifecycle of a Pi4J instance. We can edit the configuration of this <em>context</em> to create an input configuration that <em>listens</em> and reports the Raspberry Pi's GPIO signal:
 
 ```java
 package org.example;
@@ -158,6 +158,7 @@ import com.pi4j.Pi4J;
 import com.pi4j.context.Context;
 import com.pi4j.io.gpio.digital.DigitalInput;
 import com.pi4j.io.gpio.digital.DigitalInputConfig;
+import com.pi4j.io.gpio.digital.DigitalState;
 
 public class KY032_Sensor {
     // DECLARE CLASS VARIABLES
@@ -171,67 +172,42 @@ public class KY032_Sensor {
 
         // Initialize Pi4J context
         this.pi4j = Pi4J.newAutoContext();
+
         // Configure GPIO pin (physical pin 16 = BCM pin 23)
         this.gpioPin = BCMpin;
-
-        // DIN = Digital INput
-        DigitalInputConfig DINConfig = DigitalInput.newConfigBuilder(pi4j) 
+        DigitalInputConfig DINConfig = DigitalInput.newConfigBuilder(pi4j) // DIN = Digital INput
                 .id("sensor")
                 .name("Obstacle Sensor")
                 .address(gpioPin)
                 .build();
 
         this.input = pi4j.create(DINConfig);
+
+        // ADD LISTENER TO READ SENSOR DYNAMICALLY
+        this.input.addListener(e -> {
+            System.out.println(e.state() == DigitalState.LOW);
+        });
     }
 }
 
 ```
 
-Before we are complete, let's add the following methods to our KY032_Sensor Class. One method will be used to read the sensor when we call it, while the other is a simple clean up method that ends the Pi4J instance.
-
-```java
-    // READ SENSOR VALUE
-    public int readSensor() {
-        return input.isHigh() ? 0 : 1;
-    }
-
-    // END pi4j Instance
-    public String shutDownSensor() {
-        pi4j.shutdown();
-        return "pi4j instance has been shutdown";
-    }
-```
-
 Congratulations! The hard part is over. Now that you have created a KY032 Sensor class, this can be isolated and called upon anywhere. Let's call it in our <b>Main</b> Class for example.
 
-Navigate to your <b>Main</b> Class in the directory and revise your code to create an instance of the KY032 Sensor and then read. The snippit below uses a ```while``` loop to take a sensor reading every <b>1</b> second using the ```readSensor()``` method we created previously.
+Navigate to your <b>Main</b> Class in the directory and revise your code to create an instance of the KY032 Sensor. When initialized, the application will <em>listen</em> to sensor and display a boolean to the terminal. <em>True</em> if an obstruction is detected, and <em>false</em> if not.  
 :::tip
 Even though we connected the output of our sensor the the pin #16 on the Raspberry Pi's GPIO board, this is not the number that gets used. While the physical pin #16, or GPIO pin #4 ([Reference Module 02](02_ConnectRPI_to_Sensor.md)), this is not the number passed used as the argument in our method. Pi4J uses <a href="https://www.pi4j.com/documentation/pin-numbering/" >BCM numbering</a>, and not Board numbering. <b>The BCM # for Board Pin #16 is 23</b>.
 :::
 
 ```java
 package org.example;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Press Ctrl+C to exit.");
-
-        // CREATE SENSOR
+        // CREATE SENSOR INSTANCE
         // Configure GPIO pin (physical pin 16 = BCM pin 23)
         KY032_Sensor sensor = new KY032_Sensor(23);
-        try {
-            while (true) {
-                System.out.println("Sensor Value: " + sensor.readSensor());
-                TimeUnit.SECONDS.sleep(1);
-            }
-        } catch (InterruptedException e) {
-            System.out.println("Interrupted!");
-        } finally {
-            System.out.println("Cleaning up...");
-            System.out.println(sensor.shutDownSensor());
-        }
-
     }
 }
 ```
