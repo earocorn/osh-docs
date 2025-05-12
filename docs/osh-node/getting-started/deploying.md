@@ -7,7 +7,7 @@ sidebar_position: 4
 
 ## Basic Deployment
 
-After building the node, you can navigate to the newly generated ``` /osh-node-template/build/distributions``` directory.
+After building the node, you can navigate to the newly generated ``` /osh-node-dev-template/build/distributions``` directory.
 
 You will see the `osh-node-..*.zip`
 

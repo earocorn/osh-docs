@@ -1,5 +1,5 @@
 ---
-title: Configuring
+title: Build Configuration
 sidebar_position: 5
 ---
 
@@ -22,19 +22,21 @@ In the osh-node-dev-template, the root directory contains subdirectories such as
 
 To include modules into your build from add-ons, core, or a directory that you build yourself, you must modify both the `build.gradle` & `settings.gradle`.
 
-### Settings.gradle
-The `settings.gradle` file is used to configure and define the structure of a multi-project Gradle build. 
+### settings.gradle
+The `settings.gradle` file is used to configure and define the subprojects of a multi-project Gradle build. 
 
-It's primarily responsible for defining which projects are included in the build and configuring project-level settings.
+It's primarily responsible for defining which subprojects are included in the build and configuring project-level settings.
 
 It controls which projects are part of the build, typically by including or excluding subprojects.
+
+OpenSensorHub uses `settings.gradle` to define subprojects that we either use in our build or to resolve dependencies of other subprojects.
 
 #### Adding Individual Projects
 Open the `settings.gradle` in the root directory
 
 At the top of the page you will see definitions which will be used as shorthand for adding the paths to specific directories in your project's build: 
 
-```gradle
+```gradle title="/osh-node-dev-template/settings.gradle"
 rootProject.name = 'osh-node'       // Here you can rename the project 
 def includeDir = "$rootDir/include"         
 def sensorDir = "$includeDir/osh-addons/sensors"      
@@ -47,41 +49,36 @@ def toolsDir = "$rootDir/tools"
 
 Use these definitions to quickly reference the paths to the projects you need to implement.
 
-There is commented-out code giving examples of how to add a project to the build:
-```gradle 
-include '[storage-module-name]'  
-project(':[storage-module-name]').projectDir = "$sensorDir/[path]/[storage-module-name]" as File
+An example of adding a subproject to our `settings.gradle`. This project will be available to your `build.gradle` and all subproject `build.gradle`s that are included in this build.
+```gradle title="/osh-node-dev-template/settings.gradle"
+include '[module-name]'  
+project(':[module-name]').projectDir = "$sensorDir/[path]/[module-name]" as File
 ```
-The storage module name is typically something like ```sensorhub-driver-{project-name}``` or ```sensorhub-process-{project-name}```
+The module name is typically something like `sensorhub-driver-{name}` (for sensor drivers) or `sensorhub-process-{name}` (for processing modules)
 
-####  Adding an Entire Root Subdirectory
+####  Adding all submodules in a directory
 Toward the bottom of the page you will see a block of code:
-   ```gradle 
-   FileTree subprojects = fileTree("$rootDir/sensors").include('**/build.gradle')
-   subprojects.files.each { File f ->
-      File projectFolder = f.parentFile
-      if (projectFolder != rootDir) {
-         String projectName = ':' + projectFolder.name
-         include projectName
-         project(projectName).projectDir = projectFolder
-         }
-      }
-   ```
+``` gradle title="/osh-node-dev-template/settings.gradle"
+FileTree subprojects = fileTree("$rootDir/sensors").include('**/build.gradle')
+subprojects.files.each { File f ->
+  File projectFolder = f.parentFile
+  if (projectFolder != rootDir) {
+     String projectName = ':' + projectFolder.name
+     include projectName
+     project(projectName).projectDir = projectFolder
+     }
+  }
+```
 
-This code will include all subprojects from the root-directory/sensors folder.
+This code will include all subprojects from the `/osh-node-dev-template/sensors`. However, we can also use this method for including all submodules in a subdirectory.
+For example, using the `osh-addons` directory, we can include all sensors from `osh-addons` by referencing `"$sensorDir"` which includes modules from `/osh-node-dev-template/include/osh-addons/sensors`
 
 If you build your project within that directory it will automatically add your project's build.gradle to the build.
-
-:::note
-There is also a `$rootDir/processing` code block. Processes will be described in a later section.
-
-If you decide to build a process, you will be building your project in the `$rootDir/processing` directory & this block will include it in the build.
-:::
 
 #### Removing a Sensor from the Build
 To ignore submodules, you can add an if-statement to the code-block:
 
-``` java
+``` gradle title="/osh-node-dev-template/settings.gradle"
 FileTree subprojects = fileTree("$rootDir/sensors").include('**/build.gradle')
 subprojects.files.each { File f ->
    File projectFolder = f.parentFile
@@ -96,7 +93,7 @@ subprojects.files.each { File f ->
 }
 ```
 
-### Build.gradle
+### build.gradle
 The `build.gradle` file is the build script for a single project (either the root project or a subproject). 
 
 It contains the logic for building the project, such as dependencies, plugins, tasks, and other build configurations.
@@ -111,12 +108,12 @@ The dependencies block is shown with some examples commented out.
 
 Add a dependency for the driver you wish to add:
 
-```gradle 
+```gradle title="/osh-node-dev-template/build.gradle"
 implementation project(‘:sensorhub-driver-fakeweather')
 ``` 
 
-```gradle 
-implementation project(‘:sensorhub-comms-rxtx’)
+```gradle title="/osh-node-dev-template/build.gradle"
+implementation project(‘:sensorhub-process-geoloc’)
 ```
 
 Upon adding these dependencies to your `build.gradle`, your **OpenSensorHub** node will build with these drivers/processes/modules installed and ready to run.

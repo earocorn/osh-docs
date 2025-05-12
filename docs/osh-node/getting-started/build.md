@@ -26,18 +26,18 @@ You can the build the code from source using Gradle on the command line.
 Change into the directory where you cloned the repository:
 
 ```sh
-cd path/to/osh-node-dev-template
+cd osh-node-dev-template
 ```
 To build, run the following:   
 ```sh
 ./gradlew build -x test
 ```
 :::note
-`-x test` excludes the tests from the build process 
+`-x test` excludes unit tests from the build process 
 :::
 
 
 
-The resulting build will be contained in:
+The result OSH node will build in:
 
-`/osh-node-template/build/distributions/osh-node-..*.zip`
+`/osh-node-dev-template/build/distributions/osh-node-..*.zip`

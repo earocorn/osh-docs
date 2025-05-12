@@ -1,6 +1,6 @@
 {
   "label": "SensorML Processing",
-  "position": 4,
+  "position": 1,
   "link": {
     "type": "generated-index",
     "description": "A guide to developing SensorML processes"

@@ -1,0 +1,8 @@
+{
+  "label": "User Documentation",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "OSH Docs / Guides (User focused)"
+  }
+}

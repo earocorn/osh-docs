@@ -52,7 +52,7 @@ sidebar_position: 2
 ## Creating Driver Framework 
 
 ### Copying the Driver Template
-![updating package name](../../assets/osh/sensor-dev/template1.png)
+![updating package name](../../../assets/osh/sensor-dev/template1.png)
 
 1. Copy the Driver Template by right clicking the 'sensorhub-driver-template' module and click 'Copy'
 2. Paste Template back into the 'Sensors' directory
@@ -60,7 +60,7 @@ sidebar_position: 2
 4. Below is a *successfully* created Module,
     - Add files if to be managed by Git, otherwise cancel
 
-![updating package name](../../assets/osh/sensor-dev/template5.png)
+![updating package name](../../../assets/osh/sensor-dev/template5.png)
 
 
 ### Updating Package Name
@@ -68,7 +68,7 @@ sidebar_position: 2
 2. Update the package name by right clicking the package name and update the 
 3. Click 'Refactor' button
 
-![updating package name](../../assets/osh/sensor-dev/template8.png)
+![updating package name](../../../assets/osh/sensor-dev/template8.png)
 
 ### Updating Driver Build Scripts
 1. Open the 'sensorhub-driver-[name]/build.gradle'
@@ -215,7 +215,7 @@ When creating the output description you are actually performing two integratl o
         - SENSOR_OUTPUT_LABEL
         - SENSOR_OUTPUT_DESCRIPTION
 
-![three constants](../../assets/osh/sensor-dev/template9.png)
+![three constants](../../../assets/osh/sensor-dev/template9.png)
 
 The following properties are provided and will be defined in the **doInit** method of the class.
     - DataRecord: used to describe and define the structure of the output
@@ -244,7 +244,7 @@ Other Properties:
 
  For example, if your sensor measured temperature and pressure here is how you would define those fields in your data structure:
 
- ![temp and pressure](../../assets/osh/sensor-dev/template1.png)
+ ![temp and pressure](../../../assets/osh/sensor-dev/template1.png)
 
 ```java title="Output.java"
 public void doInit(){
