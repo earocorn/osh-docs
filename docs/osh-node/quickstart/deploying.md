@@ -29,8 +29,8 @@ Unzip the node. Within the extracted folder execute the launch script for your c
 Open your web browser and navigate to [`http://localhost:8181/sensorhub/admin`](http://localhost:8181/sensorhub/admin)
 
 
-## Default OSH Configuration
-With the deployment package, there is a config.json file containing a default configuration of **OpenSensorHub**. Within this configuration, only default users and services are configured. 
+### Default OSH Configuration
+With the deployment package, there is a `config.json` file containing a default configuration of **OpenSensorHub**. Within this configuration, only default users and service modules are configured. 
 
 :::info
 The default administrative credentials are:
@@ -40,4 +40,12 @@ The default administrative credentials are:
 **password**: admin
 :::
 
+Below is an example of what you should see in the **OpenSensorHub** Admin UI. 
+
+We will cover using/deploying the different modules under *User Documentation*, with API reference available in the *Developer Documentation*.
+
+![OSH Admin User Interface](../../assets/osh/adminui/adminui.PNG)
+
 ## Docker Deployment
+
+TBD

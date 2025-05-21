@@ -109,11 +109,11 @@ The dependencies block is shown with some examples commented out.
 Add a dependency for the driver you wish to add:
 
 ```gradle title="/osh-node-dev-template/build.gradle"
-implementation project(‘:sensorhub-driver-fakeweather')
+implementation project(':sensorhub-driver-fakeweather')
 ``` 
 
 ```gradle title="/osh-node-dev-template/build.gradle"
-implementation project(‘:sensorhub-process-geoloc’)
+implementation project(':sensorhub-process-geoloc')
 ```
 
 Upon adding these dependencies to your `build.gradle`, your **OpenSensorHub** node will build with these drivers/processes/modules installed and ready to run.

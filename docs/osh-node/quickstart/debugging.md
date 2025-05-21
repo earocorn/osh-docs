@@ -28,7 +28,7 @@ Or you can follow these steps in your IDE:
 After following these steps, a new debug task configuration should be updated in your IDE.
 
 ### Set Breakpoints
-- Open any driver or module that you included in the `sensorhub-test` build.gradle that you want to inspect the execution of. 
+- Open the source of any driver or module that you included in the `sensorhub-test`'s `build.gradle` of which you want to inspect the execution. 
 - Click on any line number where you want to pause the execution and add a breakpoint (a red dot should appear).
 
 ### Modify and Rebuild
