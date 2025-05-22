@@ -52,8 +52,18 @@ Below shows a tree containing different filters editable in the web interface.
 
 ### Security
 
-The *Security* configuration features two key options. 
+The *Security* configuration features two key options.
 
+The first option is to enable access control, which allows the use of granular permissions that are configurable in the *Users* security module under the *Security* tab. 
 
+The second option is to require authentication for this service. If this is enabled, clients may only connect to your service if authenticated via **OpenSensorHub**'s security module.
+This just means that clients sending requests to your *Connected Systems API* service will need to include user authentication in request headers.
 
 ### API Web Interface
+
+**OpenSensorHub** has an easy-to-navigate web interface for its *Connected Systems API Service*.
+If you go to the endpoint at which the *Connected Systems API* is being served, you are greeted with a web interface which allows you to explore resources on the node, namely *Systems*, *Data Streams*, *Observations*, *Sampling Features*, etc.
+
+If you would like to learn more about how to understand and use the *Connected Systems API*, please refer to the **OSH Connect** [documentation](../../osh-connect/introduction.md), as well as the **OGC API - Connected Systems** [website](https://ogcapi.ogc.org/connectedsystems/). 
+
+![Web-navigable Connected Systems API](../../assets/osh/adminui/services/apiui.png)
