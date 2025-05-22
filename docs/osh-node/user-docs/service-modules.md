@@ -20,5 +20,40 @@ This guide will cover basic configuration of only the *Connected Systems API Ser
 
 ## Connected Systems API Service
 
+The *Connected Systems API Service* exposes a REST API which conforms to **OGC API - Connected Systems**.
+
+By default, this API is hosted at `/sensorhub/api`, but this can be configured in the *Connected Systems API Service Module*.
+
+Below are highlighted configuration sections that may be useful in configuring the *Connected Systems API Service*
+
+![Connected Systems API Service Module Configuration](../../assets/osh/adminui/services/csapi.png)
+
+### Using a Database
+By default, the *Connected Systems API Service* will not be attached to any specific database, but will use **OpenSensorHub**'s default state database.
+If clients try to `POST` resources to your **OpenSensorHub** node via the *Connected Systems API*, you will likely see these resources appear in the *Federated Database* (if systems/datastreams/observations), 
+but they will not persist upon shutting down the node.
+
+In order to persist resources that are inserted via the *Connected Systems API*, you must attach a database to this *Service Module* through the configuration (*Database ID* field). 
+The attached database can be a simple *H2 Historical Obs Database*.
+As long as the database is running, resources will be persisted. 
+
+### Exposed Resources
+
+The *Exposed Resources* configuration enables filtering of what resources are accessible through this service.
+
+By default, *Exposed Resources* uses no filtering, which means that **ALL** resources in the *Federated Database* will be accessible through the *Connected Systems API Service*.
+
+This configuration allows us to filter by resources in a certain database, or through the use of different **OpenSensorHub** filters.
+You may provide a filter to only expose certain *Systems*, *Data Streams*, *Observations*, *Features*, etc. 
+
+Below shows a tree containing different filters editable in the web interface.
+
+![Exposed Resources config tab](../../assets/osh/adminui/services/exposedresources.png)
+
+### Security
+
+The *Security* configuration features two key options. 
 
 
+
+### API Web Interface

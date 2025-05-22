@@ -28,6 +28,17 @@ Change into the directory where you cloned the repository:
 ```sh
 cd osh-node-dev-template
 ```
+:::warning
+In order to build using Java 21, you must use an up-to-date Gradle version. 
+The Gradle wrapper version can be changed in `/osh-node-dev-template/gradle/wrapper/gradle-wrapper.properties`.
+```gradle title="/osh-node-dev-template/gradle/wrapper/gradle-wrapper.properties"
+#Wed May 06 18:14:44 CDT 2020
+// We can change from 7.3.3 to 8.10.2, to match the Gradle version used by osh-core
+// highlight-next-line
+distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-bin.zip
+distri...
+```
+:::
 To build, run the following:   
 ```sh
 ./gradlew build -x test
@@ -36,7 +47,6 @@ To build, run the following:
 `-x test` excludes unit tests from the build process 
 :::
 
-**TODO** SHOW GRADLE CONFIG FOR USING JAVA 21
 
 The result OSH node will build in:
 

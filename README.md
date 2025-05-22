@@ -1,14 +1,14 @@
 # OpenSensorHub Docs 
 
-Documentaiton site for all things OpenSensorHub!
+Documentation site for all things OpenSensorHub!
 
 ---
 
 ## Installation
-Clone the repository and install dependecies:
+Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/kalynstricklin/osh-docs
+git clone https://github.com/earocorn/osh-docs
 cd osh-docs
 npm install
 ```
