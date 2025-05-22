@@ -3,7 +3,7 @@ title: Sensor/Process Modules
 sidebar_position: 1
 ---
  
-# Sensor Drivers and Processing
+# Sensor and Process Modules
 
 Sensors and processes are at the core of **OpenSensorHub**'s ability to deploy and use inputs and outputs of physical and non-physical sensors, systems, processes, etc.
 
@@ -92,8 +92,54 @@ You may also check the *Federated Database* under the *Databases* tab, to check 
 
 ![statedboutputs.gif](..%2F..%2Fassets%2Fosh%2Fadminui%2Fsensors%2Fstatedboutputs.gif)
 
+### Sensor Driver's Commands
+
+Some *Sensor Drivers* will have *Control Streams* in addition to their output *Data Streams*. These *Control Streams* act as an interface for sending commands to a sensor or actuator.
+
+If your *Sensor Driver* has *Control Streams*, you will see a user interface for sending commands under a *Sensor Driver*'s *Outputs* section.
+
 ### Sensor Systems
 
-For more robust configuration of 
+**OpenSensorHub** has a built-in *Sensor* module that acts as a parent to a group of *Sensor Drivers* and/or *Processing Modules*. This can be useful for deployments where multiple *Sensor Drivers* and/or *Processing Modules* must be linked to a common parent.
 
-osgi modules
+![selectsensorsystem.png](..%2F..%2Fassets%2Fosh%2Fadminui%2Fsensors%2Fselectsensorsystem.png)
+
+We will walk through setting up a basic *Sensor System*.
+
+![sensorsystemconfig.png](..%2F..%2Fassets%2Fosh%2Fadminui%2Fsensors%2Fsensorsystemconfig.png)
+
+A *Sensor System* is configured like all other **OpenSensorHub** modules. While it is necessary to provide a unique ID, you may optionally provide additional descriptive information such as the *Sensor System*'s location, orientation, and SensorML description.
+
+Once configured, you may add *Sensor Drivers* and *Process Modules* under a *Sensor System* by right-clicking the *Sensor System* and selecting *Add Submodule*.
+
+![addsubmodule.png](..%2F..%2Fassets%2Fosh%2Fadminui%2Fsensors%2Faddsubmodule.png)
+
+A *Sensor System*'s children can be configured as if they were standalone modules. Below, you can see a *Sensor System* with 2 simulated weather *Sensor Drivers*. 
+
+:::info
+Submodules may not be started unless the parent *Sensor System* is started. Also, if submodules have `autoStart` enabled, then they will start once the parent *Sensor System* is started.
+:::
+
+![systemwithchildren.png](..%2F..%2Fassets%2Fosh%2Fadminui%2Fsensors%2Fsystemwithchildren.png)
+
+## Processing
+
+### SensorML Stream Processing
+
+SensorML Stream Processing can be used to connect sensor outputs/commands, and other processes' outputs/commands. 
+This allows for complex calculations and automations to be done on the fly.
+
+Currently, **OpenSensorHub** comes pre-packaged with a *SensorML Stream Process* module, accessible under the *Processing* tab. 
+In order to run this processing module, you will need to provide a *SensorML Process Description*, which should be provided in a `.xml` or `.json` file. 
+Please review the *Developer Documentation* for developing processes and describing their execution with a *SensorML Process Description*.
+
+![processmodule.png](..%2F..%2Fassets%2Fosh%2Fadminui%2Fprocessing%2Fprocessmodule.png)
+
+For the sake of this example, I will load a preconfigured simulated weather process which you can find at
+
+`/osh-node-dev-template/include/osh-addons/processing/sensorhub-process-fakeweather`
+
+This Gradle module provides you with a test class that will print a process description to your console in XML and JSON.
+After putting this process description in a file and loading it into the *SensorML Stream Process* module, we can see a stream of the process' outputs, similar to a *Sensor Driver*.
+
+![processoutputs.png](..%2F..%2Fassets%2Fosh%2Fadminui%2Fprocessing%2Fprocessoutputs.png)

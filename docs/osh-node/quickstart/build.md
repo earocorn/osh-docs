@@ -36,7 +36,7 @@ To build, run the following:
 `-x test` excludes unit tests from the build process 
 :::
 
-
+**TODO** SHOW GRADLE CONFIG FOR USING JAVA 21
 
 The result OSH node will build in:
 
