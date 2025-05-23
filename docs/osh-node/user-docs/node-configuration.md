@@ -13,7 +13,7 @@ OpenSensorHub's configuration is centralized in a single file. It is in JSON for
 
 This file contains a list of modules' configuration that are loaded in order when starting **OpenSensorHub**.
 
-This file will be found at the root of your node's directory and is named `config.json`
+This file will be found at `/osh-node-*.*.*/config/config.json`.
 
 ### Backups
 Each time your node's configuration is updated, a backup of the previous configuration will be stored in the node's directory.
@@ -23,6 +23,11 @@ Under the *Network* tab, you can see the **OpenSensorHub** node's HTTP server co
 ![networkconfig.png](..%2F..%2Fassets%2Fosh%2Fadminui%2Fnetwork%2Fnetworkconfig.png)
 This is useful for configuring authentication, CORS, HTTPS/SSL, and static content directory/URL.
 
+### Static Content
+The default static content directory in an **OpenSensorHub** node will be at `/osh-node-*.*.*/web`. 
+Any static web files that are placed here will be served at the root URL of the **OpenSensorHub** node.
+
+The directory and URL from which these static files are served may be configured in the node's HTTP server configuration.
 
 ## Security Config
 Under the *Security* tab, you will find a basic security module that includes an interface for managing users, roles, and permissions.

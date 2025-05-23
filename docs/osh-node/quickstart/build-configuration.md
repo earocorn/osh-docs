@@ -17,10 +17,10 @@ Within the project's root directory there will be a project wide `build.gradle` 
 :::info
 In Java, the "root directory" typically refers to the base or top-level directory of a file system.
 
-In the osh-node-dev-template, the root directory contains subdirectories such as `dist`, `include`, `processing`, `sensors`, etc.
+In the `osh-node-dev-template`, the root directory contains subdirectories such as `dist`, `include`, `processing`, `sensors`, etc.
 :::
 
-To include modules into your build from add-ons, core, or a directory that you build yourself, you must modify both the `build.gradle` & `settings.gradle`.
+To include modules into your build from `osh-addons`, `osh-core`, or a directory that you build yourself, you must modify both the `build.gradle` & `settings.gradle`.
 
 ### settings.gradle
 The `settings.gradle` file is used to configure and define the subprojects of a multi-project Gradle build. 

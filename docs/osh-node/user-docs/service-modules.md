@@ -66,4 +66,16 @@ If you go to the endpoint at which the *Connected Systems API* is being served, 
 
 If you would like to learn more about how to understand and use the *Connected Systems API*, please refer to the **OSH Connect** [documentation](../../osh-connect/introduction.md), as well as the **OGC API - Connected Systems** [website](https://ogcapi.ogc.org/connectedsystems/). 
 
+Clicking any of the hyperlinks under the *Available Resources* section will take you to the associated collection of resources, conformant to the **OGC API - Connected Systems** specification.
+
 ![Web-navigable Connected Systems API](../../assets/osh/adminui/services/apiui.png)
+
+Below is an example of the `/sensorhub/api/systems` web interface.
+
+![Systems collection on Connected Systems API](../../assets/osh/adminui/services/apisystems.png)
+
+## Other Service Modules
+
+Feel free to check out the *Service Modules* available in **OpenSensorHub**'s collection of module addons ([`osh-addons`](https://github.com/opensensorhub/osh-addons/tree/master/services)).
+
+You will find addons for serving data via **OGC SensorThings API**, **OGC API - Moving Features**, **MQTT Services**, and more.
