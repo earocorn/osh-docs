@@ -17,4 +17,4 @@ Inputs, Outputs, and Parameters are the core components of an atomic process. Wh
 - **Parameters** - Configuration settings that are defined in the process description. These will be set in the SensorML description itself and used to configure the process module.
 
 
-Want to build your first process? See [Creating a Process](/docs/osh-node//processes/first-process.md).
+Want to build your first process? See [Creating a Process](/docs/osh-node/processes/first-process.md).
