@@ -60,6 +60,7 @@ Below, you will see the default `logback.xml` file. Here, you have the option to
   <root level="debug">
     <appender-ref ref="STDOUT" />
   </root>
+    // highlight-next-line
   <logger name="org.sensorhub" level="debug">
     <appender-ref ref="MODULE_FILE" />
   </logger>

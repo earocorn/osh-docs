@@ -1,6 +1,6 @@
 {
   "label": "User Documentation",
-  "position": 8,
+  "position": 3,
   "link": {
     "type": "generated-index",
     "description": "This is a collection of OSH Documentation and Guides (User focused). This will mainly focus on everything you can do in the administrative web interface or Admin UI"

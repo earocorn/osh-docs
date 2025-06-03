@@ -11,7 +11,7 @@ Sensors and processes are at the core of **OpenSensorHub**'s ability to deploy a
 
 ## Sensors
 
-**OpenSensorHub** uses *Sensor Drivers* to act as a bridge between a physical (or non-physical) sensor and **OpenSensorHub**'s inner workings.
+**OpenSensorHub** uses *Sensor Drivers* to act as a bridge between a physical sensor (or non-physical stream of data) and **OpenSensorHub**'s inner workings.
 
 *Sensor Drivers* allow us to do the following
 - Persist data via **OpenSensorHub**'s database engine for long term storage

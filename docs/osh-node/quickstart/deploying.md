@@ -25,6 +25,7 @@ Unzip the node. Within the extracted folder execute the launch script for your c
 ```
 :::
 
+To test that the OSH server is running, you can visit [`http://localhost:8181/sensorhub/test`](http://localhost:8181/sensorhub/test), or by visiting the Admin UI.
 
 Open your web browser and navigate to [`http://localhost:8181/sensorhub/admin`](http://localhost:8181/sensorhub/admin)
 

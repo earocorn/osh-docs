@@ -15,16 +15,17 @@ This guide will cover all parts of the `sensorhub-driver-template`, broken down 
 In the Java implementation for a *Sensor Driver*, a few Java classes are required.
 
 
-| File          | Qty  | Purpose                                                                                                                                                                                          |
-|---------------|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Activator     | 1    | Exposes module for ability to be bundled in an OSGi bundle.                                                                                                                                      |
-| Descriptor    | 1    | Provides entrypoint (module class) and module config file for this module.                                                                                                                       |
-| Config        | 1    | Configuration used for sensor driver/module. This can include connection settings, descriptive information, etc.                                                                                 |
-| Sensor/Driver | 1    | Entrypoint or "main" class for your driver. Includes setup/connection, and a way to interface with your sensor.                                                                                  |
-| Output        | 1..* | Class used to define output data structures and publish sensor observations/outputs to the OSH event bus.                                                                                        |
-| Control       | 0..* | Class used to define command data structures and bridge an interface for commanding a sensor/actuator with OSH command interfaces such as the web UI or other services (Connected Systems, SOS). |
+| File                   | Qty  | Purpose                                                                                                                                                                                          |
+|------------------------|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Activator              | 1    | Exposes module for ability to be bundled in an OSGi bundle.                                                                                                                                      |
+| Descriptor             | 1    | Provides entrypoint (module class) and module config file for this module.                                                                                                                       |
+| Config                 | 1    | Configuration used for sensor driver/module. This can include connection settings, descriptive information, etc.                                                                                 |
+| Sensor/Driver          | 1    | Entrypoint or "main" class for your driver. Includes setup/connection, and a way to interface with your sensor.                                                                                  |
+| Output                 | 1..* | Class used to define output data structures and publish sensor observations/outputs to the OSH event bus.                                                                                        |
+| Control                | 0..* | Class used to define command data structures and bridge an interface for commanding a sensor/actuator with OSH command interfaces such as the web UI or other services (Connected Systems, SOS). |
+| META-INF/services file | 1    | File used for exposing the driver's **Descriptor** class to OSH                                                                                                                                  |
 
-## Activator
+## Activator Class
 `Activator` does not require any implementation. 
 The existence of the class exposes it with the ability to build as an OSGi bundle.
 
@@ -60,7 +61,7 @@ If you do not wish to use OSGi, you can simply build the OSH node by using
 This will exclude tests and OSGi from the build process.
 :::
 
-## Descriptor
+## Descriptor Class
 ```java title="sensorhub-driver-template/src/main/java/com/sample/impl/sensor/drivername/Descriptor.java"
 package com.sample.impl.sensor.drivername;
 
@@ -88,7 +89,7 @@ Exposing this module class allows **OpenSensorHub** to create new instances of t
 ### Module Config Class
 The module config class is the main `Config` class for this module.
 Exposing the config class allows **OpenSensorHub** to create and link new instances of a configuration to be used with newly created modules.
-## Config
+## Config Class
 ```java title="sensorhub-driver-template/src/main/java/com/sample/impl/sensor/drivername/Config.java"
 package com.sample.impl.sensor.drivername;
 
@@ -107,7 +108,7 @@ public class Config extends SensorConfig {
 The `@DisplayInfo` annotation allows you to specify additional information shown in the Admin UI, as well as additional functionality to populate or validate a field.
 ### Fields
 All `public` fields will be exposed in configuration shown in the Admin UI, as well as the node's `config.json`.
-## Sensor/Driver
+## Sensor/Driver Class
 ```java title="sensorhub-driver-template/src/main/java/com/sample/impl/sensor/drivername/Sensor.java"
 package com.sample.impl.sensor.drivername;
 
@@ -290,7 +291,7 @@ public void stopProcessing() {
     doProcessing = false;
 }
 ```
-## Output
+## Output Class(es)
 A sensor data output must contain the SWE Common Data Model for the output, 
 a default encoding for the output, 
 an average sampling period, 
@@ -537,7 +538,7 @@ public void setData(long timestamp, String data) {
 }
 ```
 
-## Control
+## Control Class(es)
 Although the `sensorhub-driver-template` does not include a `Control` class, we can look at another module from `osh-addons` to see the generic structure of this class.
 
 `Control`s are created and added to a `Sensor` in the same way that `Output`s are added.
@@ -717,4 +718,17 @@ protected boolean execCommand(DataBlock command) throws CommandException {
     
     return true;
 }
+```
+
+## META-INF/services File
+This file located in `/sensorhub-driver-template/src/main/resources/META-INF/services` is required to allow **OpenSensorHub** 
+to find the implementation of the driver's `Descriptor` class, which allows OSH to instantiate and use this driver's main module class and config class.
+
+This file should always be named with the classpath of the implemented service, and contain a list of the implementations of that service.
+
+For example, this driver's `Descriptor` class implements the `IModuleProvider` from `osh-core`, so the file must be named `org.sensorhub.api.module.IModuleProvider`, and the file must contain the line `com.sample.impl.sensor.drivername.Descriptor`.
+See below.
+
+```txt title="../resources/META-INF/services/org.sensorhub.api.module.IModuleProvider"
+com.sample.impl.sensor.drivername.Descriptor
 ```
