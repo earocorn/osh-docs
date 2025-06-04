@@ -724,7 +724,7 @@ protected boolean execCommand(DataBlock command) throws CommandException {
 This file located in `/sensorhub-driver-template/src/main/resources/META-INF/services` is required to allow **OpenSensorHub** 
 to find the implementation of the driver's `Descriptor` class, which allows OSH to instantiate and use this driver's main module class and config class.
 
-This file should always be named with the classpath of the implemented service, and contain a list of the implementations of that service.
+This file should always be named with the classpath of the service being implemented, and contain a list of the implementations of that service.
 
 For example, this driver's `Descriptor` class implements the `IModuleProvider` from `osh-core`, so the file must be named `org.sensorhub.api.module.IModuleProvider`, and the file must contain the line `com.sample.impl.sensor.drivername.Descriptor`.
 See below.

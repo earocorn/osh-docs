@@ -1,5 +1,5 @@
 ---
-title:    Your First Process
+title: Process Development
 sidebar_position: 2
 ---
 
@@ -25,73 +25,71 @@ The OSH module containing the processing implementation should include at least 
 
 - org.sensorhub.api.processing.IProcessProvider - Provider to allow OSH to find the executable process
 
-- build.gradle 
+- build.gradle
 
 
 ```java title="Activator.java"
-    public class Activator extends OshBundleActivator implements BundleActivator
-    {}
+public class Activator extends OshBundleActivator implements BundleActivator
+{}
 ```
 
 ```java title="ProcessDescriptor.java"
-    public class ProcessDescriptors extends AbstractProcessProvider
-    {
+public class ProcessDescriptors extends AbstractProcessProvider {
 
-         public ProcessDescriptors()
-       {
-     // Adds the process implementation to the process manager using the ProcessInfo defined in the implementation
-           addImpl(MyProcess.INFO);
-       }
-
-    }
+  public ProcessDescriptors() {
+    // Adds the process implementation to the process manager using the ProcessInfo defined in the implementation
+    addImpl(MyProcess.INFO);
+  }
+}
 ```
 
-```java title="path.to.ProcessDescriptor"
-org.sensorhub.api.processing.IProcessProvider
+Replace the below with the path to your **Descriptor**
+```txt title="../src/main/resources/META-INF/services/org.sensorhub.api.processing.IProcessProvider"
+classpath.to.ProcessDescriptors
 ``` 
 
 ```java title="MyProcess.java"
-    public class MyProcess extends ExecutableProcessImpl {
+public class MyProcess extends ExecutableProcessImpl {
 
-    // Required process information 
-    public static final OSHProcessInfo INFO = new OSHProcessInfo("myprocessname", "An example process", null, MyProcess.class);
-
-    Count input1;
-    Count output1;
-    Count parameter1;
-
-    public MyProcess() {
-        super(INFO);
-
-        SWEHelper fac = new SWEHelper();
-
+  // Required process information 
+  public static final OSHProcessInfo INFO = new OSHProcessInfo("myprocessname", "An example process", null, MyProcess.class);
+  
+  Count input1;
+  Count output1;
+  Count parameter1;
+  
+  public MyProcess() {
+    super(INFO);
+  
+    SWEHelper fac = new SWEHelper();
+  
     // Initialize inputs, outputs, params
-     inputData.add("input1", input1 = fac.createCount().build());
-     outputData.add("output1", output1 = fac.createCount().build());
-     paramData.add("param1", parameter1 = fac.createCount().build());
-    }
-
-    @Override
-    public void execute() throws ProcessException {
-        // Use inputs and params to update outputs
-     int paramValue = parameter1.getData().getIntValue();
-     int inputValue = input1.getData().getIntValue();
-
-     int equation = inputValue * paramValue;
-
-     output1.getData().setIntValue(equation);
-    }
-    }
+    inputData.add("input1", input1 = fac.createCount().build());
+    outputData.add("output1", output1 = fac.createCount().build());
+    paramData.add("param1", parameter1 = fac.createCount().build());
+  }
+  
+  @Override
+  public void execute() throws ProcessException {
+    // Use inputs and params to update outputs
+    int paramValue = parameter1.getData().getIntValue();
+    int inputValue = input1.getData().getIntValue();
+  
+    int equation = inputValue * paramValue;
+  
+    output1.getData().setIntValue(equation);
+  }
+}
 ```
 
 ### Executing the Process
 
-Ensure that your process module is included in the project’s \`build.gradle\`. In order to execute the created process, a SensorML process description must be provided to pass to the SensorML process module in OSH.
+Ensure that your process module is included in the project’s `build.gradle`. 
+In order to execute the created process, a SensorML process description must be provided to pass to the **SensorML Stream Process Module** in OSH.
 
 
 ### SensorML Process Chain Description
-
-A SensorML process description is an aggregate process composed of outputs, components, and connections.
+A SensorML process chain description is an *Aggregate Process* composed of inputs, outputs, parameters, components, and connections.
 
 This required SensorML process chain description has a few requirements as listed below.
 
@@ -210,3 +208,6 @@ This description will use the previous Java implementation as the sample process
        </sml:connections>
     </sml:AggregateProcess>
 ```
+
+## Process Description Helpers
+TODO

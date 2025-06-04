@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'OpenSensorHub',
-  tagline: 'Everything you need to harness OpenSensorHub',
+  title: 'OpenSensorHub Documentation',
+  tagline: 'Java-based middleware for building better Sensor Webs and the Internet of Things',
   favicon: 'img/OSH-Logo-NoText.png',
 
   // Set the production url of your site here
