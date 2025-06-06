@@ -1,3 +1,0 @@
----
-title: SWE Common
----
