@@ -23,3 +23,14 @@ Key properties for creating a `ConSysApi` data source:
 
 For a more in-depth look,
 see the `ConSysApi` data source <a href="/reference/jsdoc/ConSysApi.html" target="_blank">API Reference</a>
+
+Once a datasource is created, you must open a connection to the data source:
+```js
+datasource.connect();
+```
+
+:::note 
+A connection from a single data source is not required when using a 
+<a href="/reference/jsdoc/DataSynchronizer.html" target="_blank">DataSynchronizer</a>.
+When the `DataSynchronizer` connects, it will handle connections of associated data sources.
+:::
