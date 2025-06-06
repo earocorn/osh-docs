@@ -94,8 +94,8 @@ Sending an `HTTP` `GET` request to the following endpoint will yield us a list o
 The request will return the following:
 
 
-<Tabs>
-    <TabItem value="smlSystems" label="SensorML JSON">
+<Tabs groupId="responseformat">
+    <TabItem value="sml" label="SensorML JSON">
     ```json
     {
         "items": [
@@ -115,7 +115,7 @@ The request will return the following:
     }
     ```
     </TabItem>
-    <TabItem value="geoSystems" label="GeoJSON" default>
+    <TabItem value="geo" label="GeoJSON" default>
     ```json
     {
         "items": [
@@ -158,8 +158,8 @@ Using the first *System* as an example, we'll retrieve the *System* description.
 
 Response:
 
-<Tabs>
-    <TabItem value="smlDesc" label="SensorML JSON">
+<Tabs groupId="responseformat">
+    <TabItem value="sml" label="SensorML JSON">
     ```json
     {
         "type": "PhysicalSystem",
@@ -174,7 +174,7 @@ Response:
     }
     ```
     </TabItem>
-    <TabItem value="geoDesc" label="GeoJSON" default>
+    <TabItem value="geo" label="GeoJSON" default>
     ```json
     {
         "type": "Feature",
@@ -257,4 +257,208 @@ We can use our previous *System* as an example of how to query and select a part
 
 [`https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6/datastreams`](https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6/datastreams)
 
-Response:
+Response (all *DataStreams* of our *System*):
+
+```json
+{
+  "items": [
+    {
+      "id": "15po2igbfnjjk",
+      "name": "Predator UAV (MISB simulated RT) - GeoReferenced Image Frame",
+      "system@id": "ki7dgdg90mqt6",
+      "system@link": {
+        "href": "https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6?f=json",
+        "uid": "urn:osh:sensor:uas:predator001-RT",
+        "type": "application/geo+json"
+      },
+      "outputName": "geoRefImageFrame",
+      "validTime": [
+        "2023-05-14T15:22:00Z",
+        "now"
+      ],
+      "phenomenonTime": [
+        "2025-06-06T20:29:05.117Z",
+        "2025-06-06T20:39:05.252000244Z"
+      ],
+      "resultTime": [
+        "2025-06-06T20:29:05.117Z",
+        "2025-06-06T20:39:05.252000244Z"
+      ],
+      "observedProperties": [
+        {
+          "definition": "http://sensorml.com/ont/misb0601/property/FrameCenterLocation"
+        },
+        {
+          "definition": "http://sensorml.com/ont/misb0601/property/FrameUpperRightCornerLocation"
+        },
+        {
+          "definition": "http://sensorml.com/ont/misb0601/property/FrameLowerRightCornerLocation"
+        },
+        {
+          "definition": "http://sensorml.com/ont/misb0601/property/FrameLowerLeftCornerLocation"
+        },
+        {
+          "definition": "http://sensorml.com/ont/misb0601/property/FrameUpperLeftCornerLocation"
+        }
+      ],
+      "resultType": "record",
+      "formats": [
+        "application/om+json",
+        "application/swe+json",
+        "application/swe+csv",
+        "application/swe+xml",
+        "application/swe+binary"
+      ]
+    },
+    {
+      "id": "98nto59268lok",
+      "name": "Predator UAV (MISB simulated RT) - Platform Attitude",
+      "system@id": "ki7dgdg90mqt6",
+      ...
+    },
+    {
+      "id": "6ft4mrvfugkr2",
+      "name": "Predator UAV (MISB simulated RT) - Sensor Location",
+      ...
+    },
+    {
+      "id": "5lkdq857dt2l6",
+      "name": "Predator UAV (MISB simulated RT) - UAS Video",
+      ...
+    }
+  ]
+}
+```
+
+For the sake of simplicity, we'll select the "Sensor Location" *DataStream*, by using its `id` (`6ft4mrvfugkr2`).
+
+We can retrieve this *DataStream* through the collection endpoint for *DataStreams*, or through our *System*'s *DataStream* collection.
+```http request
+/api/datastreams/{id}
+```
+or
+```http request
+/api/systems/{systemId}/datastreams/{datastreamId}
+```
+
+Retrieving our *DataStream* from `/api/datastreams`:
+
+[`https://api.georobotix.io/ogc/demo1/api/datastreams/6ft4mrvfugkr2`](https://api.georobotix.io/ogc/demo1/api/datastreams/6ft4mrvfugkr2)
+
+```json
+{
+  "id": "6ft4mrvfugkr2",
+  "name": "Predator UAV (MISB simulated RT) - Sensor Location",
+  "system@id": "ki7dgdg90mqt6",
+  "system@link": {
+    "href": "https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6?f=json",
+    "uid": "urn:osh:sensor:uas:predator001-RT",
+    "type": "application/geo+json"
+  },
+  "outputName": "sensorLocation",
+  "validTime": [
+    "2023-05-14T15:22:00Z",
+    "now"
+  ],
+  "phenomenonTime": [
+    "2025-06-06T20:36:05.118Z",
+    "2025-06-06T20:46:48.12Z"
+  ],
+  "resultTime": [
+    "2025-06-06T20:36:05.118Z",
+    "2025-06-06T20:46:48.12Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://www.opengis.net/def/property/OGC/0/SensorLocation"
+    }
+  ],
+  "resultType": "vector",
+  "formats": [
+    "application/om+json",
+    "application/swe+json",
+    "application/swe+csv",
+    "application/swe+xml",
+    "application/swe+binary"
+  ],
+  "links": [
+    {
+      "rel": "canonical",
+      "href": "https://api.georobotix.io/ogc/demo1/api/datastreams/6ft4mrvfugkr2",
+      "type": "application/json"
+    },
+    {
+      "rel": "system",
+      "title": "Parent system as GeoJSON",
+      "href": "https://api.georobotix.io/ogc/demo1/api/systems/ki7dgdg90mqt6?f=application/geo+json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "observations",
+      "title": "Collection of observations",
+      "href": "https://api.georobotix.io/ogc/demo1/api/datastreams/6ft4mrvfugkr2/observations"
+    }
+  ]
+}
+```
+
+We can see that this *DataStream* object gives us the output name, observed properties, data type, and other useful information.
+### Observations
+If we want to retrieve observations from this *DataStream*, 
+we can simply go to the *Observations* collection on this *DataStream*.
+
+```http request
+/api/datastreams/{datastreamId}/observations
+```
+
+Retrieving the *DataStream*'s *Observations*:
+
+[`https://api.georobotix.io/ogc/demo1/api/datastreams/6ft4mrvfugkr2/observations`](https://api.georobotix.io/ogc/demo1/api/datastreams/6ft4mrvfugkr2/observations)
+
+```json
+{
+  "items": [
+    {
+      "id": "ogc00th28ee5tj52lj8rjmkang",
+      "datastream@id": "6ft4mrvfugkr2",
+      "foi@id": "lsp05mnn1dfn2",
+      "phenomenonTime": "2025-06-06T20:40:05.118Z",
+      "resultTime": "2025-06-06T20:40:05.118Z",
+      "result": {
+        "location": {
+          "lat": 34.69819220933048,
+          "lon": -86.66536597845395,
+          "alt": 3047.812619211108
+        }
+      }
+    },
+    {
+      "id": "8trbhispt33eu31ems7fp27j5c",
+      "datastream@id": "6ft4mrvfugkr2",
+      "foi@id": "lsp05mnn1dfn2",
+      "phenomenonTime": "2025-06-06T20:40:05.152Z",
+      "resultTime": "2025-06-06T20:40:05.152Z",
+      "result": {
+        "location": {
+          "lat": 34.69819950158624,
+          "lon": -86.66533982691604,
+          "alt": 3047.812619211108
+        }
+      }
+    },
+    {
+      "id": "4a5vdif0vau8hgbeg82lstohus",
+      "datastream@id": "6ft4mrvfugkr2",
+      ...
+  ],
+  "links": [
+    {
+      "rel": "next",
+      "href": "https://api.georobotix.io/ogc/demo1/api/datastreams/6ft4mrvfugkr2/observations?offset=100",
+      "type": "application/om+json"
+    }
+  ]
+}
+```
+
+The response yields us a paginated list of this *DataStream*'s *Observations*, which includes timestamps and the result data block.

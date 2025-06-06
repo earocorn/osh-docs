@@ -24,5 +24,7 @@ npm install osh-js
 [![github](https://img.shields.io/github/release/opensensorhub/osh-js.svg?style=flat-square&maxAge=600)](https://github.com/opensensorhub/osh-js/releases/latest)
 
 
-
-If you download or clone the repository, you must [build](/docs/osh-connect//osh-js/quick-guide/installing.md) `osh-js.js` to generate the dist files. osh-js no longer comes with prebuilt release versions, so an alternative option to downloading the repo is **strongly** advised.
+:::warning
+If you download or clone the repository, you must build `osh-js.js` to generate the dist files. 
+`osh-js` no longer comes with prebuilt release versions, so an alternative option to downloading the repo is **strongly** advised.
+:::

@@ -5,10 +5,10 @@ sidebar_position: 3
 
 # Usage
 
-ConnectedSystems-JS can be used with ES6 modules, plain JavaScript, and module loaders.
+**OSHConnect-JS** can be used with ES6 modules, plain JavaScript, and module loaders.
 
 ## Visualize GPS Data
-To visualzie a datasource, we need to instantiate `DataSource` , 'View', and 'Layer' classes and an 'HTML Tag' to render the result.
+To visualize     a datasource, we need to instantiate a `DataSource`, `View`, and `Layer`, as well as an HTML Tag to render the result.
 
 ### Create HTML Element
 The HTML Element is the anchor of you View.
@@ -19,10 +19,9 @@ The HTML Element is the anchor of you View.
 
 ### Import Modules
 ```js
-// create data source for Android phone GPS
-
-import PointMarkerLayer from 'osh-js/core/ui/layer/PointMarkerLayer.js';
-import LeafletView from 'osh-js/core/ui/view/map/LeafletView.js';
+import ConSysApi from 'osh-js/source/core/datasource/consysapi/ConSysApi.datasource'
+import PointMarkerLayer from 'osh-js/source/core/ui/layer/PointMarkerLayer.js';
+import LeafletView from 'osh-js/source/core/ui/view/map/LeafletView.js';
 ```
 
 ### Create the DataSource

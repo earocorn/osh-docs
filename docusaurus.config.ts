@@ -73,12 +73,6 @@ const config: Config = {
           label: 'OSH Connect',
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'communitySidebar',
-          position: 'right',
-          label: 'Community',
-        },
-        {
           href: 'https://github.com/opensensorhub',
           position: 'right',
           className: 'header-github-link',
@@ -100,25 +94,6 @@ const config: Config = {
               label: 'OSH Connect',
               to: '/docs/osh-connect/introduction',
             },  
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-      
-            {
-              label: 'Contribute to OSH',
-              href: '/docs/community/contribution-guide'
-            },
-            {
-              label: 'OpenSensorHub',
-              href: 'https://opensensorhub.org/',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/k4nYuyMF72',
-            },
-        
           ],
         },
         {

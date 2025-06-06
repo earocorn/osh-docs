@@ -27,13 +27,6 @@ Once the connector retrieves the data, it sends the data to the Broadcast channe
 These connectors have some common properties and some more specific ones.
 
 
-
-
-
-
-
-
-
 ## WebSocket protocol: 'ws'
 
 The WebSocket connector is used to open a connection to a WebSocket feed.
@@ -47,15 +40,6 @@ Within the Toolkit, some options of the dataSources allow you to define the remo
 The HTTP connector is used to open a connection to a HTTP feed.
 
 Within the Toolkit, some options of the dataSources allow you to define the remote address of the server. Some properties depend on the SOS standard that the OSH server needs to retrieve the data.
-
-## Topic protocol: 'topic'
-
-The Topic connector is used to listen to a BroadcastChannel given a specific topic name.
-
-
-```js
-
-```
 
 ## File protocol: 'file'
 
