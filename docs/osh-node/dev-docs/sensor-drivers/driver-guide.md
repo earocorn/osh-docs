@@ -395,7 +395,7 @@ Gradle `build` task in IntelliJ IDEA:
 This build process will fail if any of your unit tests fail.
 If you choose to build without testing, you may run `./gradlew build -x test`.
 
-:::warn
+:::warning
 pay attention to errors, see docs page about common errors and troubleshooting
 :::
 
