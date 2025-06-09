@@ -31,8 +31,8 @@ After following these steps, a new debug task configuration should be updated in
 - Open the source of any driver or module that you included in the `sensorhub-test`'s `build.gradle` of which you want to inspect the execution. 
 - Click on any line number where you want to pause the execution and add a breakpoint (a red dot should appear).
 
-### Modify and Rebuild
-- Any changes made to the driver code can be rebuilt within IntelliJ without the need to go through a full build, unzip and launch process.
+### Modify and Rerun
+- Any changes made to the driver code can be rebuilt within IntelliJ without the need to go through a full build, unzip, and launch process.
 - After any modifications, restart the debug session to apply changes and continue testing. 
 
 ### Checking Endpoint
