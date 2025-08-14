@@ -10,14 +10,6 @@ At its core, a **SensorML Process** represents any physical or computational pro
 
 SensorML also supports **Process Chains**, where the output of one process can serve as the input to another, enabling more complex processing workflows.
 
-[//]: # (**SensorML Processes** transform one or more inputs using well-defined methods, and configurable parameters into one or more outputs.)
-[//]: # (SensorML supports the explicit linking between processes, this phenomenon is known as `Process Chains`, where the output of one process becomes the input into another.)
-[//]: # (Using the OGC SensorML standard and XML encoding, *Processes* provide machine-readable descriptions of any computational or physical procedure.)
-[//]: # (The models and schema within SensorML offer a skeletal framework for defining individual processes, aggregate processes, and entire sensor systems.)
-[//]: # (*SensorML Processes* are described as a transformation of inputs into outputs. They are fundamental for connecting sensors to actuators, automating tasks, and chaining sensor drivers, computational modules, and control streams.)
-[//]: # (A Process takes one or more inputs, applies well-defined methods and configurable parameters, and produces one or more outputs. SensorML supports **Process Chains**, where the output of one process can feed into another as input.)
-
-
 ### Key Components of a Process
 Each SensorML process is built using four primary elements:
 
