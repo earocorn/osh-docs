@@ -4,8 +4,10 @@ sidebar_position: 2
 toc_max_heading_level: 5
 ---
 
-# Process Development
+# Process Template
+This guide goes through the java code and dives into each file and
 This guide will show example implementation from the `osh-node-dev-template` repository on **OpenSensorHub**'s public GitHub.
+
 Please refer to the [*Development Template*](../dev-template.md) page for setting up this repository, and learning more about what is included in the template.
 
 The example implementation will be under `osh-node-dev-template/processing/sensorhub-process-template`.

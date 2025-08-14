@@ -3,8 +3,90 @@ title: Process Guide
 sidebar_position: 3
 toc_max_heading_level: 5
 ---
-# Creating a Process
-In this example, you will use the process template provided to replicate a **Simulated Weather Sensor Process**.
+# Implementation Guide
+
+### Step 1: Define Process Requirements
+Before writing SensorML Process, it is a good idea to think about these questions:
+- What inputs does your process require?
+- What outputs will it produce?
+- What parameters, if any, control its behavior?
+- How does the transformation work?
+
+### Step 2: Choose the Right Process Type
+| Scenario                     | Recommended Type  | 
+|------------------------|------|
+| Single algorithm or function | Simple Process    |
+| Multi-step workflow | Aggregate Process    |
+| Hardware device description | Physical Component    |
+| xxxxx | Physical System   |
+| xxxxx | Configurable Process    |
+
+
+
+
+## Mapping SensorML Concepts to OSH Code
+
+### Process Definition Mapping
+| SensorML Element    | OSH Java Impl                        |             Purpose |
+|---------------------|--------------------------------------|---------------------|
+| `<sml:identifier>`  | `OSHProcessInfo` constructor         | Contains unique ID for process |
+| `<sml:inputs>`      | `this.inputData.add()`               | Defines input data structure  |
+| `<sml:outputs>`     | `this.outputData.add()`              |  Defines output data structures |
+| `<sml:parameters>`  | `this.paramData.add()`               | Configuration parameters |
+| ` `   | `execute()` method                                 | Processing logic implementation |
+
+### Process ID and Description
+```xml
+    <gml:description>Your process description</gml:description>
+    <gml:identifier codeSpace="uid">urn:your:process:your-process-id</gml:identifier>
+    <gml:name> Your Process Name </gml:name>
+```
+
+```java
+public static final OSHProcessInfo INFO = new OSHProcessInfo(
+    "your-process-id",
+    "Your Process Name",
+    "Your process description",
+    Process.class
+);
+```
+
+### Inputs/ Outputs/ Parameters
+```xml title=SensorML XML
+<sml:input name="weather">
+  <swe:DataRecord definition="http://sensorml.com/ont/swe/property/Weather">
+    <swe:field name="time">
+      <swe:Time definition="http://sensorml.com/ont/swe/property/SamplingTime"/>
+    </swe:field>
+    <swe:field name="temperature">
+      <swe:Quantity definition="http://sensorml.com/ont/swe/property/AirTemperature">
+        <swe:uom code="Cel"/>
+      </swe:Quantity>
+    </swe:field>
+  </swe:DataRecord>
+</sml:input>
+```
+
+```java title=OSH Process Java Impl
+this.inputData.add("weather", input1 = fac.createRecord()
+    .name("weather")
+    .definition("http://sensorml.com/ont/swe/property/Weather")
+    .description("Weather measurements")
+    .addField("time", fac.createTime().asSamplingTimeIsoUTC())
+    .addField("temperature", fac.createQuantity()
+        .definition(SWEHelper.getPropertyUri("AirTemperature"))
+        .label("Air Temperature")
+        .uom("Cel"))
+    .build());
+```
+
+
+
+
+
+
+# Example: Weather Unit Conversion Process
+In this example, you will use the process template provided to replicate the **Simulated Weather Sensor Process**.
 
 ## Prerequisites
 It is highly recommended to use an IDE such as IntelliJ IDEA or Eclipse.
@@ -88,6 +170,7 @@ It is important to update this package name in a few different places.
 Below is an example of some locations for the package name changes.
 
 ![packagechange.png](../../../assets/osh/sensor-dev/packagechange.png)
+
 ### Gradle
 A few lines must be changed in your module's `build.gradle` to describe the module, and to credit developers and/or organizations for distribution.
 
@@ -127,6 +210,7 @@ ext.pom >>= {
 }
 
 ```
+
 ### Readme
 Be sure to include up-to-date information regarding your process in a README.md file.
 
@@ -137,7 +221,6 @@ Some information includes (but not limited to):
 
 ## Modify Code
 Now, we can modify the template code to create a **Simulated Weather Process** based on this template process.
-
 
 ### Process
 A few things need to be specified in our `Process` class.
@@ -299,3 +382,18 @@ Below we can see that the process is successfully publishing random weather obse
 8. Configure the processing module by adding the XML file with the SensorML Process Chain Description that we generated earlier.
 9. Start the processing module.
 10. Check that the processing module is publishing outputs.
+
+
+## Troubleshooting Common Issues
+
+### Issue: Data Type Mismatch
+- Problem:
+- Solution: 
+
+### Issue: Missing Required Fields
+- Problem:
+- Solution: 
+
+### Issue: Process Chain Connection Fails
+- Problem:
+- Solution: 
