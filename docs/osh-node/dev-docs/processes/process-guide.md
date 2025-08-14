@@ -1,4 +1,4 @@
----
+ ---
 title: Process Guide
 sidebar_position: 3
 toc_max_heading_level: 5
@@ -13,75 +13,13 @@ Before writing SensorML Process, it is a good idea to think about these question
 - How does the transformation work?
 
 ### Step 2: Choose the Right Process Type
-| Scenario                     | Recommended Type  | 
-|------------------------|------|
-| Single algorithm or function | Simple Process    |
-| Multi-step workflow | Aggregate Process    |
-| Hardware device description | Physical Component    |
-| xxxxx | Physical System   |
-| xxxxx | Configurable Process    |
-
-
-
-
-## Mapping SensorML Concepts to OSH Code
-
-### Process Definition Mapping
-| SensorML Element    | OSH Java Impl                        |             Purpose |
-|---------------------|--------------------------------------|---------------------|
-| `<sml:identifier>`  | `OSHProcessInfo` constructor         | Contains unique ID for process |
-| `<sml:inputs>`      | `this.inputData.add()`               | Defines input data structure  |
-| `<sml:outputs>`     | `this.outputData.add()`              |  Defines output data structures |
-| `<sml:parameters>`  | `this.paramData.add()`               | Configuration parameters |
-| ` `   | `execute()` method                                 | Processing logic implementation |
-
-### Process ID and Description
-```xml
-    <gml:description>Your process description</gml:description>
-    <gml:identifier codeSpace="uid">urn:your:process:your-process-id</gml:identifier>
-    <gml:name> Your Process Name </gml:name>
-```
-
-```java
-public static final OSHProcessInfo INFO = new OSHProcessInfo(
-    "your-process-id",
-    "Your Process Name",
-    "Your process description",
-    Process.class
-);
-```
-
-### Inputs/ Outputs/ Parameters
-```xml title=SensorML XML
-<sml:input name="weather">
-  <swe:DataRecord definition="http://sensorml.com/ont/swe/property/Weather">
-    <swe:field name="time">
-      <swe:Time definition="http://sensorml.com/ont/swe/property/SamplingTime"/>
-    </swe:field>
-    <swe:field name="temperature">
-      <swe:Quantity definition="http://sensorml.com/ont/swe/property/AirTemperature">
-        <swe:uom code="Cel"/>
-      </swe:Quantity>
-    </swe:field>
-  </swe:DataRecord>
-</sml:input>
-```
-
-```java title=OSH Process Java Impl
-this.inputData.add("weather", input1 = fac.createRecord()
-    .name("weather")
-    .definition("http://sensorml.com/ont/swe/property/Weather")
-    .description("Weather measurements")
-    .addField("time", fac.createTime().asSamplingTimeIsoUTC())
-    .addField("temperature", fac.createQuantity()
-        .definition(SWEHelper.getPropertyUri("AirTemperature"))
-        .label("Air Temperature")
-        .uom("Cel"))
-    .build());
-```
-
-
-
+| Scenario                     | Recommended Type     | 
+|------------------------------|----------------------|
+| Single algorithm or function | Simple Process       |
+| Multi-step workflow          | Aggregate Process    |
+| Hardware device description  | Physical Component   |
+| xxxxx                        | Physical System      |
+| xxxxx                        | Configurable Process |
 
 
 

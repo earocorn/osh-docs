@@ -18,15 +18,15 @@ This guide will cover all parts of the `sensorhub-process-template`, broken down
 In the Java implementation for a *Process Driver*, a few Java classes are required and included in the template.
 
 
-| File                   | Qty  | Purpose                                                                                                                                                                                          |
-|------------------------|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Activator              | 1    | Exposes module for ability to be bundled in an OSGi bundle.                                                                                                                                      |
-| Descriptor             | 1    | Provides entrypoint (module class) and module config file for this module.                                                                                                                       |
-| Process                | 1    | Entrypoint for your process. Includes inputs, outputs, parameters, and process execution.                                                                                                        |
-| META-INF/services file | 1    | File used for exposing the processes **Descriptor** class to OSH                                                                                                                                  |
-| test/java/ ProcessDescriptionGenerator  | 1    | File used to generate the required XML encoding description.                                                                                                                          |
-| test/resources/ process-description.xml | 1    | Example file of structure of XML encoding description.                                                                                                                        |
-| test/resources/ process-description.json | 1    |   Example file of structure of JSON encoding description.                                                                                                                    |
+| File                                     | Qty | Purpose                                                                                   |
+|------------------------------------------|-----|-------------------------------------------------------------------------------------------|
+| Activator                                | 1   | Exposes module for ability to be bundled in an OSGi bundle.                               |
+| Descriptor                               | 1   | Provides entrypoint (module class) and module config file for this module.                |
+| Process                                  | 1   | Entrypoint for your process. Includes inputs, outputs, parameters, and process execution. |
+| META-INF/services file                   | 1   | File used for exposing the processes **Descriptor** class to OSH                          |
+| test/java/ ProcessDescriptionGenerator   | 1   | File used to generate the required XML encoding description.                              |
+| test/resources/ process-description.xml  | 1   | Example file of structure of XML encoding description.                                    |
+| test/resources/ process-description.json | 1   | Example file of structure of JSON encoding description.                                   |
 
 ## Activator Class
 `Activator` does not require any implementation. 
@@ -86,7 +86,6 @@ public Descriptor() {
     addImpl(Process.INFO); // registers Process for discovery
 } 
 ```
-
 
 ## Process Class
 ```java title="sensorhub-process-template/src/main/java/com/sample/impl/process/processname/Process.java"
@@ -167,7 +166,7 @@ public Process() {
 
 #### `execute()`
 The `execute()` method contains the core processing logic and is called by the OSH framework. This is where all the data transformation and computatational logic occurs. 
-```java
+```java title="execute method"
 @Override
 public void execute() {
   // 1. retrieve input and param values
